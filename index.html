@@ -7,9 +7,192 @@
 <meta name="description" content="Smart Wash Washing Powder — Zimbabwe's trusted cleaning solution. Rich foam, powerful stain removal, fresh fragrance for homes and businesses.">
 <link rel="canonical" href="https://smartwash.co.zw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
+/* ===== GLOBAL RISING BUBBLES ===== */
+#global-bubbles {
+  position:fixed; inset:0; z-index:9998; pointer-events:none; overflow:hidden;
+}
+.gb {
+  position:absolute; border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.18);
+  animation:bubbleRise linear infinite;
+  opacity:0;
+}
+.gb::before {
+  content:''; position:absolute; top:18%; left:22%; width:30%; height:20%;
+  background:radial-gradient(ellipse, rgba(255,255,255,0.6), transparent);
+  border-radius:50%; transform:rotate(-30deg);
+}
+@keyframes bubbleRise {
+  0% { transform:translateY(100vh) translateX(0) scale(0.3); opacity:0; }
+  8% { opacity:var(--bub-opacity, 0.6); }
+  50% { transform:translateY(40vh) translateX(var(--bub-drift, 30px)) scale(1); }
+  85% { opacity:var(--bub-opacity, 0.4); }
+  100% { transform:translateY(-15vh) translateX(var(--bub-drift2, -20px)) scale(1.2); opacity:0; }
+}
+/* Bubble shine effect */
+.gb::after {
+  content:''; position:absolute; top:15%; left:15%; width:20%; height:12%;
+  background:rgba(255,255,255,0.5); border-radius:50%; filter:blur(1px);
+}
+
+/* ===== FONTS UPGRADE ===== */
+.hn-title {
+  font-family:'Outfit',sans-serif !important;
+  font-weight:800 !important;
+  letter-spacing:-3px !important;
+}
+.hn-sub {
+  font-family:'Space Grotesk',sans-serif !important;
+}
+.hn-badge {
+  font-family:'Space Grotesk',sans-serif !important;
+}
+/* Section titles - upgrade to Outfit */
+.section-title {
+  font-family:'Outfit','Playfair Display',serif !important;
+  font-weight:800 !important;
+}
+/* Product names */
+.product-name {
+  font-family:'Outfit',sans-serif !important;
+  font-weight:700 !important;
+}
+/* Nav logo */
+.nav-logo {
+  font-family:'Outfit','Bebas Neue',sans-serif !important;
+  letter-spacing:4px !important;
+}
+/* Button text */
+.btn {
+  font-family:'Space Grotesk',sans-serif !important;
+}
+/* Hero badge text */
+.trust-item {
+  font-family:'Space Grotesk',sans-serif !important;
+}
+
+/* ===== HERO GRADIENT UPGRADE ===== */
+.hn-overlay {
+  background: linear-gradient(165deg, 
+    rgba(7,12,46,0.94) 0%, 
+    rgba(47,63,174,0.70) 35%, 
+    rgba(107,33,168,0.45) 55%, 
+    rgba(30,42,133,0.80) 75%, 
+    rgba(7,12,46,0.95) 100%
+  ) !important;
+}
+/* Add moving aurora effect to hero */
+.hn-aurora {
+  position:absolute; inset:0; z-index:2; pointer-events:none;
+  background: linear-gradient(
+    45deg,
+    rgba(239,28,36,0.12) 0%,
+    rgba(47,63,174,0.18) 25%,
+    rgba(107,33,168,0.15) 50%,
+    rgba(245,197,24,0.08) 75%,
+    rgba(239,28,36,0.12) 100%
+  );
+  background-size:400% 400%;
+  animation:auroraShift 12s ease-in-out infinite;
+}
+@keyframes auroraShift {
+  0%,100% { background-position:0% 50%; }
+  25% { background-position:100% 50%; }
+  50% { background-position:100% 0%; }
+  75% { background-position:0% 100%; }
+}
+
+/* ===== COLOR GRADING OVERLAY ===== */
+.color-grade {
+  position:fixed; inset:0; z-index:9997; pointer-events:none;
+  background:linear-gradient(to bottom, 
+    rgba(47,63,174,0.03) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(47,63,174,0.05) 100%
+  );
+  mix-blend-mode:multiply;
+}
+
+/* ===== MARQUEE UPGRADE ===== */
+.marquee-item {
+  font-family:'Space Grotesk',sans-serif !important;
+}
+
+/* ===== BETTER PROMO GRADIENT ===== */
+.promo-visual {
+  background: linear-gradient(135deg, 
+    #0d1340 0%, 
+    #2f3fae 30%, 
+    #6b21a8 60%,
+    #ef1c24 90%,
+    #f5c518 100%
+  ) !important;
+}
+
+/* ===== CTA SECTION UPGRADE ===== */
+.cta-section {
+  background: linear-gradient(135deg, 
+    #070c2e 0%, 
+    #1e2a85 30%, 
+    #2f3fae 50%,
+    #6b21a8 75%,
+    #ef1c24 100%
+  ) !important;
+}
+
+/* ===== PRODUCT CARDS — VIVID GRADIENT BORDERS ===== */
+.products-grid .product-card {
+  position:relative;
+}
+.products-grid .product-card::before {
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  padding:1px;
+  background:linear-gradient(135deg, rgba(239,28,36,0.5), rgba(47,63,174,0.5), rgba(107,33,168,0.5));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:0;transition:opacity 0.4s;
+}
+.products-grid .product-card:hover::before { opacity:1; }
+
+/* ===== HOW TO — GRADIENT STEP NUMBERS ===== */
+.step-num {
+  background:linear-gradient(135deg, #ef1c24, #f5c518) !important;
+  font-size:1.6rem !important;
+  box-shadow:0 8px 24px rgba(239,28,36,0.4), 0 0 40px rgba(239,28,36,0.15) !important;
+}
+
+/* ===== SECTION TITLE GRADIENT SWEEP ===== */
+.text-gradient {
+  background:linear-gradient(135deg, var(--red) 0%, var(--yellow) 50%, var(--purple-light) 100%);
+  background-size:200% 200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradientSweep 4s ease-in-out infinite;
+}
+@keyframes gradientSweep {
+  0%,100% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+}
+
+/* ===== HERO BUTTON GLOW ===== */
+.btn-primary {
+  background:linear-gradient(135deg, #ef1c24, #ff4a50) !important;
+  box-shadow:0 8px 32px rgba(239,28,36,0.4), 0 0 60px rgba(239,28,36,0.15) !important;
+  position:relative;overflow:hidden;
+}
+.btn-primary::after {
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  opacity:0;transition:opacity 0.4s;
+}
+.btn-primary:hover::after { opacity:1; }
+
 .hero-new {
   min-height:100vh; position:relative; overflow:hidden;
   display:flex; align-items:center; justify-content:center;
@@ -279,6 +462,9 @@
 </head>
 <body>
 
+<!-- RISING BUBBLES — global overlay across entire page -->
+<div id="global-bubbles" aria-hidden="true"></div>
+
 <div id="page-transition"><div class="pt-layer"></div><div class="pt-layer"></div><div class="pt-layer"></div></div>
 
 <div id="preloader">
@@ -317,6 +503,7 @@
     <canvas id="heroCanvas"></canvas>
   </div>
   <div class="hn-overlay"></div>
+  <div class="hn-aurora"></div>
   <div class="hn-noise"></div>
   <div class="hn-glow hn-glow-1"></div>
   <div class="hn-glow hn-glow-2"></div>
@@ -854,62 +1041,96 @@
 
 <script src="js/main.js"></script>
 <script>
-// Hero Canvas Animation - Floating Particles
+// Hero Canvas — Connected Particle Network
 (function(){
-  const canvas = document.getElementById('heroCanvas');
+  const canvas=document.getElementById('heroCanvas');
   if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let w, h, particles = [];
-  function resize(){
-    w = canvas.width = canvas.offsetWidth;
-    h = canvas.height = canvas.offsetHeight;
-  }
+  const ctx=canvas.getContext('2d');
+  let w,h,particles=[];
+  function resize(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight;}
   resize();
-  window.addEventListener('resize', resize);
-  // Create floating particles
-  for(let i=0; i<60; i++){
-    particles.push({
-      x: Math.random()*w, y: Math.random()*h,
-      r: Math.random()*20+5, dx: (Math.random()-0.5)*0.5, dy: (Math.random()-0.5)*0.5,
-    o: Math.random()*0.15+0.03,
-    });
+  window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++){
+    particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*18+5,dx:(Math.random()-0.5)*0.4,dy:(Math.random()-0.5)*0.4,o:Math.random()*0.12+0.02});
   }
   function draw(){
     ctx.clearRect(0,0,w,h);
     particles.forEach(p=>{
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(255,255,255,${p.o})`;
-      ctx.fill();
-      ctx.strokeStyle = `rgba(255,255,255,${p.o*1.5})`;
-      ctx.lineWidth = 0.5;
-      ctx.stroke();
-      p.x += p.dx; p.y += p.dy;
-      if(p.x<-p.r) p.x=w+p.r;
-      if(p.x>w+p.r) p.x=-p.r;
-      if(p.y<-p.r) p.y=h+p.r;
-      if(p.y>h+p.r) p.y=-p.r;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(255,255,255,${p.o})`;ctx.fill();
+      ctx.strokeStyle=`rgba(255,255,255,${p.o*1.5})`;ctx.lineWidth=0.5;ctx.stroke();
+      p.x+=p.dx;p.y+=p.dy;
+      if(p.x<-p.r)p.x=w+p.r;if(p.x>w+p.r)p.x=-p.r;
+      if(p.y<-p.r)p.y=h+p.r;if(p.y>h+p.r)p.y=-p.r;
     });
-    // Draw connection lines
     for(let i=0;i<particles.length;i++){
       for(let j=i+1;j<particles.length;j++){
-        const dx=particles[i].x-particles[j].x;
-        const dy=particles[i].y-particles[j].y;
-        const dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<150){
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x,particles[i].y);
-          ctx.lineTo(particles[j].x,particles[j].y);
-          ctx.strokeStyle=`rgba(255,255,255,${0.03*(1-dist/150)})`;
-          ctx.lineWidth=0.5;
-          ctx.stroke();
-        }
+        const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(255,255,255,${0.03*(1-dist/150)})`;ctx.lineWidth=0.5;ctx.stroke();}
       }
     }
     requestAnimationFrame(draw);
   }
   draw();
 })();
+
+// ===== GLOBAL RISING BUBBLES =====
+(function(){
+  const container=document.getElementById('global-bubbles');
+  if(!container) return;
+  
+  const colors=[
+    {bg:'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), rgba(255,255,255,0.03))', border:'rgba(255,255,255,0.2)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(239,28,36,0.25), rgba(239,28,36,0.02))', border:'rgba(239,28,36,0.3)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(47,63,174,0.25), rgba(47,63,174,0.02))', border:'rgba(47,63,174,0.3)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(107,33,168,0.2), rgba(107,33,168,0.02))', border:'rgba(107,33,168,0.25)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(245,197,24,0.2), rgba(245,197,24,0.02))', border:'rgba(245,197,24,0.25)'},
+  ];
+  
+  function createBubble(){
+    const b=document.createElement('div');
+    b.className='gb';
+    const size=Math.random()*50+12;
+    const dur=Math.random()*12+8;
+    const delay=Math.random()*6;
+    const drift=(Math.random()-0.5)*80;
+    const drift2=(Math.random()-0.5)*60;
+    const opacity=Math.random()*0.4+0.15;
+    const colorIdx=Math.floor(Math.random()*colors.length);
+    const left=Math.random()*100;
+    
+    b.style.cssText=`
+      width:${size}px;height:${size}px;
+      left:${left}%;bottom:-${size}px;
+      --bub-opacity:${opacity};--bub-drift:${drift}px;--bub-drift2:${drift2}px;
+      background:${colors[colorIdx].bg};
+      border:1px solid ${colors[colorIdx].border};
+      animation-duration:${dur}s;
+      animation-delay:${delay}s;
+      filter:blur(${Math.random()>0.7?1:0}px);
+    `;
+    container.appendChild(b);
+    
+    // Remove after animation completes and create new one
+    setTimeout(()=>{
+      if(b.parentNode) b.parentNode.removeChild(b);
+      createBubble();
+    }, (dur+delay)*1000);
+  }
+  
+  // Start with 25 bubbles, stagger creation
+  for(let i=0;i<25;i++){
+    setTimeout(()=>createBubble(), i*400);
+  }
+  
+  // Continuously add new bubbles
+  setInterval(()=>{
+    if(container.children.length<35) createBubble();
+  }, 2000);
+})();
 </script>
+
+<!-- Color grading overlay for whole page -->
+<div class="color-grade"></div>
 </body>
 </html>
