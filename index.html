@@ -47,14 +47,13 @@
 /* ===== HERO ===== */
 .hero-new{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;background:#050a28}
 .hero-bg-img{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-bg-img img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.35;animation:heroBgZoom 20s ease-in-out infinite alternate;filter:brightness(0.7) saturate(1.4)}
-@keyframes heroBgZoom{0%{transform:scale(1) translateY(0)}100%{transform:scale(1.2) translateY(-40px)}}
-.hero-canvas-bg{position:absolute;inset:0;z-index:0}
-.hero-grad-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(155deg,rgba(5,10,40,0.82)0%,rgba(47,63,174,0.58)40%,rgba(107,33,168,0.38)65%,rgba(5,10,40,0.82)100%)}
-.hero-aurora{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(45deg,rgba(239,28,36,0.12),rgba(47,63,174,0.2),rgba(107,33,168,0.15),rgba(245,197,24,0.08),rgba(239,28,36,0.12));background-size:400%400%;animation:auroraShift 12s ease-in-out infinite}
-@keyframes auroraShift{0%,100%{background-position:0%50%}25%{background-position:100%50%}50%{background-position:100%0%}75%{background-position:0%100%}}
-.hero-noise{position:absolute;inset:0;z-index:3;opacity:0.025;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px128px}
-.hero-glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(100px);z-index:2}
+.hero-bg-img img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.55;animation:heroBgZoom 18s ease-in-out infinite alternate;filter:brightness(0.75) saturate(1.5) contrast(1.1)}
+@keyframes heroBgZoom{0%{transform:scale(1) translateY(0) rotate(0deg)}50%{transform:scale(1.12) translateY(-25px) rotate(0.5deg)}100%{transform:scale(1.18) translateY(-45px) rotate(-0.3deg)}}
+.hero-canvas-bg{position:absolute;inset:0;z-index:1}
+.hero-grad-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(155deg,rgba(5,10,40,0.72)0%,rgba(47,63,174,0.48)40%,rgba(107,33,168,0.32)65%,rgba(5,10,40,0.72)100%)}
+.hero-aurora{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(45deg,rgba(239,28,36,0.12),rgba(47,63,174,0.2),rgba(107,33,168,0.15),rgba(245,197,24,0.08),rgba(239,28,36,0.12));background-size:400%400%;animation:auroraShift 12s ease-in-out infinite}
+.hero-noise{position:absolute;inset:0;z-index:4;opacity:0.025;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px128px}
+.hero-glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(100px);z-index:3}
 .hg1{width:600px;height:600px;background:rgba(239,28,36,0.12);top:-15%;right:5%;animation:glowPulse 8s ease-in-out infinite}
 .hg2{width:500px;height:500px;background:rgba(47,63,174,0.18);bottom:5%;left:-5%;animation:glowPulse 10s ease-in-out infinite 2s}
 .hg3{width:400px;height:400px;background:rgba(107,33,168,0.12);top:30%;left:35%;animation:glowPulse 7s ease-in-out infinite 4s}
