@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://smartwash.co.zw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <style>
 /* ===== GLOBAL BUBBLES ===== */
@@ -47,8 +48,11 @@
 /* ===== HERO ===== */
 .hero-new{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;background:#050a28}
 .hero-bg-img{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-bg-img img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.55;animation:heroBgZoom 18s ease-in-out infinite alternate;filter:brightness(0.75) saturate(1.5) contrast(1.1)}
-@keyframes heroBgZoom{0%{transform:scale(1) translateY(0) rotate(0deg)}50%{transform:scale(1.12) translateY(-25px) rotate(0.5deg)}100%{transform:scale(1.18) translateY(-45px) rotate(-0.3deg)}}
+.hero-bg-img img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.35;filter:brightness(0.7) saturate(1.3)}
+.hero-wash-overlay{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.hero-wash-ripple{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,0.15);pointer-events:none}
+.hero-wash-scrub{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-wash-scrub-stroke{position:absolute;pointer-events:none;opacity:0}
 .hero-canvas-bg{position:absolute;inset:0;z-index:1}
 .hero-grad-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(155deg,rgba(5,10,40,0.72)0%,rgba(47,63,174,0.48)40%,rgba(107,33,168,0.32)65%,rgba(5,10,40,0.72)100%)}
 .hero-aurora{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(45deg,rgba(239,28,36,0.12),rgba(47,63,174,0.2),rgba(107,33,168,0.15),rgba(245,197,24,0.08),rgba(239,28,36,0.12));background-size:400%400%;animation:auroraShift 12s ease-in-out infinite}
@@ -192,6 +196,25 @@
 <!-- ===== HERO ===== -->
 <section class="hero-new">
   <div class="hero-bg-img"><img src="img/hero-bg.jpg" alt="Smart Wash Products" /></div>
+  <div class="hero-wash-overlay" id="washOverlay"></div>
+  <div class="hero-wash-scrub" id="washScrub">
+    <svg class="hero-wash-scrub-svg" id="washSvg" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.6;">
+      <defs>
+        <filter id="washGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="washBlur"><feGaussianBlur stdDeviation="8"/></filter>
+        <linearGradient id="foamGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.9)"/><stop offset="100%" style="stop-color:rgba(200,220,255,0.4)"/></linearGradient>
+      </defs>
+      <circle id="washCircle1" cx="700" cy="450" r="0" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" filter="url(#washGlow)"/>
+      <circle id="washCircle2" cx="700" cy="450" r="0" fill="none" stroke="rgba(239,28,36,0.2)" stroke-width="2" filter="url(#washGlow)"/>
+      <circle id="washCircle3" cx="700" cy="450" r="0" fill="none" stroke="rgba(47,63,174,0.2)" stroke-width="2" filter="url(#washGlow)"/>
+      <path id="washPath1" d="" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="4" stroke-linecap="round" filter="url(#washGlow)"/>
+      <path id="washPath2" d="" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-linecap="round" filter="url(#washGlow)"/>
+      <path id="washPath3" d="" fill="none" stroke="rgba(239,28,36,0.35)" stroke-width="3" stroke-linecap="round" filter="url(#washGlow)"/>
+      <ellipse id="washFoam1" cx="0" cy="0" rx="0" ry="0" fill="url(#foamGrad)" opacity="0" filter="url(#washBlur)"/>
+      <ellipse id="washFoam2" cx="0" cy="0" rx="0" ry="0" fill="url(#foamGrad)" opacity="0" filter="url(#washBlur)"/>
+      <ellipse id="washFoam3" cx="0" cy="0" rx="0" ry="0" fill="url(#foamGrad)" opacity="0" filter="url(#washBlur)"/>
+    </svg>
+  </div>
   <div class="hero-canvas-bg"><canvas id="heroCanvas"></canvas></div>
   <div class="hero-grad-overlay"></div>
   <div class="hero-aurora"></div>
@@ -445,6 +468,118 @@
     requestAnimationFrame(draw);
   }
   draw();
+})();
+
+// ===== HERO WASHING ANIMATION (GSAP) =====
+(function(){
+  if(typeof gsap==='undefined')return;
+
+  var hero=document.querySelector('.hero-new');
+  if(!hero)return;
+  var heroW=1400,heroH=900;
+
+  function scrubPath(sx,sy,ex,ey,cycles){
+    var d='M '+sx+' '+sy;
+    var steps=cycles*2;
+    var totalDist=Math.sqrt((ex-sx)*(ex-sx)+(ey-sy)*(ey-sy));
+    var stepX=(ex-sx)/steps;
+    var stepY=(ey-sy)/steps;
+    var perpAmt=totalDist*0.12;
+    for(var i=1;i<=steps;i++){
+      var px=sx+stepX*i;
+      var py=sy+stepY*i;
+      if(i%2===1){
+        var nx=-(ey-sy)/totalDist*perpAmt;
+        var ny=(ex-sx)/totalDist*perpAmt;
+        px+=nx;py+=ny;
+      }
+      d+=(' L '+px.toFixed(1)+' '+py.toFixed(1));
+    }
+    return d;
+  }
+
+  function createRipple(cx,cy,maxR,duration,delay){
+    var overlay=document.getElementById('washOverlay');
+    if(!overlay)return;
+    var el=document.createElement('div');
+    el.className='hero-wash-ripple';
+    el.style.left=cx+'%';
+    el.style.top=cy+'%';
+    el.style.width='0';
+    el.style.height='0';
+    overlay.appendChild(el);
+    var tl=gsap.timeline({delay:delay,repeat:-1,repeatDelay:2});
+    tl.fromTo(el,{width:0,height:0,marginLeft:0,marginTop:0,opacity:0.5,borderWidth:'3px'},{width:maxR+'px',height:maxR+'px',marginLeft:-(maxR/2)+'px',marginTop:-(maxR/2)+'px',opacity:0,borderWidth:'1px',duration:duration,ease:'power2.out'});
+    return el;
+  }
+
+  createRipple(45,55,350,3,0);
+  createRipple(55,40,280,3.5,1);
+  createRipple(35,60,320,3,2);
+  createRipple(60,50,400,4,0.5);
+
+  var svgEl=document.getElementById('washSvg');
+  var path1=document.getElementById('washPath1');
+  var path2=document.getElementById('washPath2');
+  var path3=document.getElementById('washPath3');
+  var c1=document.getElementById('washCircle1');
+  var c2=document.getElementById('washCircle2');
+  var c3=document.getElementById('washCircle3');
+  var f1=document.getElementById('washFoam1');
+  var f2=document.getElementById('washFoam2');
+  var f3=document.getElementById('washFoam3');
+
+  c1.setAttribute('cx','500');c1.setAttribute('cy','550');
+  c2.setAttribute('cx','850');c2.setAttribute('cy','400');
+  c3.setAttribute('cx','650');c3.setAttribute('cy','300');
+
+  path1.setAttribute('d',scrubPath(300,700,900,250,6));
+  path2.setAttribute('d',scrubPath(900,500,350,300,5));
+  path3.setAttribute('d',scrubPath(200,350,800,600,7));
+
+  f1.setAttribute('cx','500');f1.setAttribute('cy','500');
+  f2.setAttribute('cx','850');f2.setAttribute('cy','380');
+  f3.setAttribute('cx','350');f3.setAttribute('cy','600');
+
+  var masterTl=gsap.timeline({repeat:-1});
+
+  // Cycle 1
+  masterTl.fromTo(path1,{attr:{d:scrubPath(300,700,500,400,0)},strokeWidth:2,opacity:0},{attr:{d:scrubPath(300,700,900,250,6)},strokeWidth:4,opacity:0.8,duration:2.5,ease:'power1.inOut'},0);
+  masterTl.to(path1,{strokeWidth:0.5,opacity:0,duration:1.5,ease:'power2.out'},2.5);
+
+  masterTl.fromTo(c1,{attr:{r:0},opacity:0},{attr:{r:180},opacity:0.4,duration:2,ease:'power2.out'},0.3);
+  masterTl.to(c1,{attr:{r:280},opacity:0,duration:2.5,ease:'power1.in'},2);
+
+  masterTl.fromTo(f1,{attr:{rx:0,ry:0},opacity:0},{attr:{rx:60,ry:20},opacity:0.15,duration:1.5,ease:'power2.out'},0.5);
+  masterTl.to(f1,{attr:{rx:100,ry:40},opacity:0,duration:1,ease:'power2.in'},2.5);
+
+  // Cycle 2
+  masterTl.fromTo(path2,{attr:{d:scrubPath(900,500,800,400,0)},strokeWidth:2,opacity:0},{attr:{d:scrubPath(900,500,350,300,5)},strokeWidth:3.5,opacity:0.7,duration:2.2,ease:'power1.inOut'},1.5);
+  masterTl.to(path2,{strokeWidth:0.5,opacity:0,duration:1.3,ease:'power2.out'},3.7);
+
+  masterTl.fromTo(c2,{attr:{r:0},opacity:0},{attr:{r:150},opacity:0.35,duration:1.8,ease:'power2.out'},1.8);
+  masterTl.to(c2,{attr:{r:240},opacity:0,duration:2,ease:'power1.in'},3.2);
+
+  masterTl.fromTo(f2,{attr:{rx:0,ry:0},opacity:0},{attr:{rx:50,ry:18},opacity:0.12,duration:1.2,ease:'power2.out'},2);
+  masterTl.to(f2,{attr:{rx:85,ry:35},opacity:0,duration:0.8,ease:'power2.in'},3.5);
+
+  // Cycle 3
+  masterTl.fromTo(path3,{attr:{d:scrubPath(200,350,350,450,0)},strokeWidth:1.5,opacity:0},{attr:{d:scrubPath(200,350,800,600,7)},strokeWidth:3.5,opacity:0.6,duration:2.8,ease:'power1.inOut'},3);
+  masterTl.to(path3,{strokeWidth:0.5,opacity:0,duration:1.5,ease:'power2.out'},5.5);
+
+  masterTl.fromTo(c3,{attr:{r:0},opacity:0},{attr:{r:160},opacity:0.3,duration:1.8,ease:'power2.out'},3.3);
+  masterTl.to(c3,{attr:{r:260},opacity:0,duration:2.2,ease:'power1.in'},4.8);
+
+  masterTl.fromTo(f3,{attr:{rx:0,ry:0},opacity:0},{attr:{rx:45,ry:15},opacity:0.1,duration:1,ease:'power2.out'},3.5);
+  masterTl.to(f3,{attr:{rx:80,ry:32},opacity:0,duration:0.7,ease:'power2.in'},4.8);
+
+  // Image scrub motion
+  var bgImg=hero.querySelector('.hero-bg-img img');
+  if(bgImg){
+    masterTl.fromTo(bgImg,{x:-15,y:10,scale:1.05},{x:15,y:-10,scale:1.12,duration:3,ease:'sine.inOut'},0);
+    masterTl.to(bgImg,{x:-10,y:15,scale:1.08,duration:2.5,ease:'sine.inOut'},3);
+    masterTl.to(bgImg,{x:0,y:0,scale:1.05,duration:2,ease:'sine.inOut'},5.5);
+  }
 })();
 
 // ===== GLOBAL RISING BUBBLES =====
