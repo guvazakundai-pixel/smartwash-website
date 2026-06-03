@@ -418,7 +418,7 @@ section { padding:100px 7%; }
   background:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 24px);
 }
 .about-big-num {
-  font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,10vw,8rem);
+  font-family:'Outfit','Bebas Neue',sans-serif; font-size:clamp(4rem,10vw,8rem);
   line-height:1; letter-spacing:-2px; position:relative; z-index:1;
 }
 .about-big-num span { color:var(--red); }
@@ -446,7 +446,7 @@ section { padding:100px 7%; }
 }
 .about-stat:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
 .about-stat-num {
-  font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--blue);
+  font-family:'Outfit','Bebas Neue',sans-serif; font-size:2.4rem; color:var(--blue);
   line-height:1; letter-spacing:1px;
 }
 .about-stat-num .red { color:var(--red); }
@@ -525,7 +525,7 @@ section { padding:100px 7%; }
 .tag-blue { background:#f0f2ff; color:var(--blue); }
 .tag-yellow { background:#fff9e6; color:#b8860b; }
 
-.product-price { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:var(--blue); margin-bottom:12px; }
+.product-price { font-family:'Outfit','Bebas Neue',sans-serif; font-size:1.6rem; color:var(--blue); margin-bottom:12px; }
 .product-price span { font-size:0.85rem; color:var(--gray-500); font-family:'DM Sans',sans-serif; }
 
 .product-cta {
@@ -601,7 +601,7 @@ section { padding:100px 7%; }
 }
 .step-num {
   width:56px; height:56px; border-radius:50%;
-  background:linear-gradient(135deg, var(--red), var(--yellow)); color:#fff; font-family:'Bebas Neue',sans-serif;
+  background:linear-gradient(135deg, var(--red), var(--yellow)); color:#fff; font-family:'Outfit','Bebas Neue',sans-serif;
   font-size:1.5rem; display:flex; align-items:center; justify-content:center;
   margin:0 auto 18px; box-shadow:0 8px 24px var(--shadow-red), 0 0 40px rgba(239,28,36,0.15);
   position:relative;
@@ -810,7 +810,7 @@ footer {
 .footer-grid {
   display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:48px; margin-bottom:50px;
 }
-.footer-brand .logo { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:5px; color:#fff; }
+.footer-brand .logo { font-family:'Outfit','Bebas Neue',sans-serif; font-size:2rem; letter-spacing:5px; color:#fff; }
 .footer-brand .logo span { color:var(--red); }
 .footer-brand p { color:rgba(255,255,255,0.45); font-size:0.85rem; line-height:1.8; margin-top:14px; max-width:280px; }
 footer h4 {
