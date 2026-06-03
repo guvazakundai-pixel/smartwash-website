@@ -13,8 +13,8 @@
 /* ===== GLOBAL BUBBLES ===== */
 #global-bubbles{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden}
 .gb{position:absolute;border-radius:50%;pointer-events:none;opacity:0;animation:bubbleRise linear infinite}
-.gb::before{content:'';position:absolute;top:15%;left:20%;width:35%;height:25%;background:radial-gradient(ellipse,rgba(255,255,255,0.7),transparent);border-radius:50%;transform:rotate(-25deg)}
-.gb::after{content:'';position:absolute;top:8%;left:10%;width:15%;height:8%;background:rgba(255,255,255,0.4);border-radius:50%;filter:blur(1px)}
+.gb::before{content:'';position:absolute;top:15%;left:20%;width:35%;height:25%;background:radial-gradient(ellipse,rgba(47,63,174,0.15),transparent);border-radius:50%;transform:rotate(-25deg)}
+.gb::after{content:'';position:absolute;top:8%;left:10%;width:15%;height:8%;background:rgba(47,63,174,0.08);border-radius:50%;filter:blur(1px)}
 @keyframes bubbleRise{
 0%{transform:translateY(105vh) translateX(0) scale(0.2);opacity:0}
 6%{opacity:var(--bub-o,0.5)}
@@ -32,7 +32,7 @@
 }
 
 /* ===== COLOR GRADE ===== */
-.color-grade{position:fixed;inset:0;z-index:9997;pointer-events:none;background:linear-gradient(180deg,rgba(47,63,174,0.02)0%,transparent15%,transparent85%,rgba(47,63,174,0.04)100%);mix-blend-mode:multiply}
+.color-grade{position:fixed;inset:0;z-index:9997;pointer-events:none;background:linear-gradient(180deg,rgba(47,63,174,0.03)0%,transparent15%,transparent85%,rgba(47,63,174,0.05)100%);mix-blend-mode:multiply}
 
 /* ===== FONTS ===== */
 .hn-title{font-family:'Outfit',sans-serif!important;font-weight:800!important;letter-spacing:-3px!important}
@@ -45,41 +45,41 @@
 @keyframes gradientSweep{0%,100%{background-position:0%50%}50%{background-position:100%50%}}
 
 /* ===== HERO ===== */
-.hero-new{min-height:100vh;min-height:100dvh;position:relative;overflow:hidden;display:flex;align-items:center;background:#050a28}
+.hn-title{font-family:'Outfit',serif;font-size:clamp(3.4rem,8vw,7.5rem);font-weight:800;line-height:.93;color:var(--text-dark);letter-spacing:-3px;margin-bottom:24px}
+.hero-new{min-height:100vh;min-height:100dvh;position:relative;overflow:hidden;display:flex;align-items:center;background:linear-gradient(135deg,#f8f9fc 0%,#eef0f8 30%,#f0f2f8 60%,#fff 100%)}
 .hero-bg-img{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-bg-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:0;transition:opacity 2s ease}
 @media(max-width:768px){.hero-bg-img img{object-position:center 20%}}
-.hero-canvas-bg{position:absolute;inset:0;z-index:1;opacity:0.3}
-.hero-grad-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(155deg,rgba(5,10,40,0.55)0%,rgba(47,63,174,0.35)35%,rgba(107,33,168,0.2)60%,rgba(5,10,40,0.55)100%)}
-.hero-aurora{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(45deg,rgba(239,28,36,0.06),rgba(47,63,174,0.1),rgba(107,33,168,0.08),rgba(245,197,24,0.04),rgba(239,28,36,0.06));background-size:400%400%;animation:auroraShift 12s ease-in-out infinite}
-.hero-noise{position:absolute;inset:0;z-index:4;opacity:0.025;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px128px}
+.hero-canvas-bg{position:absolute;inset:0;z-index:1;opacity:0.15}
+.hero-grad-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(155deg,rgba(248,249,252,0.85)0%,rgba(248,249,252,0.7)35%,rgba(238,240,248,0.6)60%,rgba(255,255,255,0.75)100%)}
+.hero-aurora{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(45deg,rgba(239,28,36,0.03),rgba(47,63,174,0.05),rgba(107,33,168,0.04),rgba(245,197,24,0.02),rgba(239,28,36,0.03));background-size:400%400%;animation:auroraShift 12s ease-in-out infinite}
+.hero-noise{position:absolute;inset:0;z-index:4;opacity:0.015;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px128px}
 .hero-glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(100px);z-index:3}
-.hg1{width:600px;height:600px;background:rgba(239,28,36,0.08);top:-15%;right:5%;animation:glowPulse 8s ease-in-out infinite}
-.hg2{width:500px;height:500px;background:rgba(47,63,174,0.1);bottom:5%;left:-5%;animation:glowPulse 10s ease-in-out infinite 2s}
-.hg3{width:400px;height:400px;background:rgba(107,33,168,0.06);top:30%;left:35%;animation:glowPulse 7s ease-in-out infinite 4s}
+.hg1{width:600px;height:600px;background:rgba(239,28,36,0.06);top:-15%;right:5%;animation:glowPulse 8s ease-in-out infinite}
+.hg2{width:500px;height:500px;background:rgba(47,63,174,0.08);bottom:5%;left:-5%;animation:glowPulse 10s ease-in-out infinite 2s}
+.hg3{width:400px;height:400px;background:rgba(107,33,168,0.05);top:30%;left:35%;animation:glowPulse 7s ease-in-out infinite 4s}
 .hg4{width:300px;height:300px;background:rgba(245,197,24,0.04);top:60%;right:20%;animation:glowPulse 9s ease-in-out infinite 1s}
 @keyframes glowPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.15)}}
 
 .hero-content{position:relative;z-index:10;width:100%;max-width:1400px;margin:0 auto;padding:120px7%80px;display:grid;grid-template-columns:1fr1fr;gap:80px;align-items:center}
 .hn-left{position:relative}
-.hn-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(20px);border-radius:30px;padding:8px22px;margin-bottom:28px;color:rgba(255,255,255,0.55);font-size:0.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.3sboth}
+.hn-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(26,26,46,0.06);border:1px solid rgba(26,26,46,0.12);backdrop-filter:blur(20px);border-radius:30px;padding:8px22px;margin-bottom:28px;color:var(--gray-600);font-size:0.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.3sboth}
 .hn-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red),0 0 30px rgba(239,28,36,0.4);animation:pulse2s ease-in-out infinite}
 @keyframes pulse2{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.hn-title{font-family:'Outfit',serif;font-size:clamp(3.4rem,8vw,7.5rem);font-weight:800;line-height:.93;color:#fff;letter-spacing:-3px;margin-bottom:24px}
 .hn-title .line{display:block;overflow:hidden;animation:clipReveal 1s cubic-bezier(0.16,1,0.3,1)both}
 .hn-title .line:nth-child(2){animation-delay:.15s}
 @keyframes clipReveal{from{clip-path:inset(0100%00);opacity:0;transform:translateY(50px)}to{clip-path:inset(0000);opacity:1;transform:translateY(0)}}
 .hn-title .hl{color:var(--red);font-style:italic;position:relative;display:inline-block}
 .hn-title .hl::after{content:'';position:absolute;bottom:8px;left:0;width:100%;height:10px;background:linear-gradient(90deg,var(--red),var(--yellow));opacity:.25;border-radius:5px}
-.hn-sub{font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.5);max-width:520px;line-height:1.8;margin-bottom:36px;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.5sboth}
+.hn-sub{font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,2vw,1.2rem);color:var(--gray-500);max-width:520px;line-height:1.8;margin-bottom:36px;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.5sboth}
 @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .hn-btns{display:flex;gap:16px;flex-wrap:wrap;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.65sboth}
 .hn-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.8sboth}
-.hn-stat{padding:20px0;border-right:1px solid rgba(255,255,255,0.08);text-align:left}
+.hn-stat{padding:20px0;border-right:1px solid var(--gray-200);text-align:left}
 .hn-stat:last-child{border-right:none}
-.hn-stat-num{font-family:'Outfit','Bebas Neue',sans-serif;font-size:2.8rem;color:#fff;line-height:1;letter-spacing:1px}
+.hn-stat-num{font-family:'Outfit','Bebas Neue',sans-serif;font-size:2.8rem;color:var(--text-dark);line-height:1;letter-spacing:1px}
 .hn-stat-num .red{color:var(--red)}
-.hn-stat-label{font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:6px;font-weight:600}
+.hn-stat-label{font-size:0.62rem;color:var(--gray-400);letter-spacing:2px;text-transform:uppercase;margin-top:6px;font-weight:600}
 
 /* ===== HERO PRODUCT CARDS ===== */
 .hn-right{position:relative;display:flex;justify-content:center;align-items:center}
@@ -87,20 +87,20 @@
 .hn-pf-card{position:absolute;border-radius:24px;overflow:hidden;transition:all0.5scubic-bezier(0.4,0,0.2,1);cursor:pointer}
 .hn-pf-card::before{content:'';position:absolute;inset:0;opacity:0.04;z-index:1;background:repeating-linear-gradient(45deg,#fff0,#fff1px,transparent0,transparent20px)}
 .hn-pf-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;position:relative;z-index:2}
-.hn-pf-card:nth-child(1){width:290px;height:370px;background:linear-gradient(145deg,#2a3cc9,#1a2470);bottom:0;right:0;transform:rotate(-4deg)translateY(0);z-index:3;box-shadow:0 30px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.1),0 0 120px rgba(47,63,174,0.3)}
-.hn-pf-card:nth-child(2){width:260px;height:330px;background:linear-gradient(145deg,#ef1c24,#a01018);bottom:25px;right:50px;transform:rotate(3deg);z-index:2;opacity:.8;box-shadow:0 25px 60px rgba(239,28,36,0.3)}
-.hn-pf-card:nth-child(3){width:230px;height:290px;background:linear-gradient(145deg,#7c3aed,#4a1d8e);bottom:55px;right:110px;transform:rotate(-1deg);z-index:1;opacity:.55;box-shadow:0 20px 50px rgba(107,33,168,0.25)}
-.hn-pf-card:nth-child(1):hover{transform:rotate(0deg)scale(1.06)translateY(-10px)!important;z-index:10;box-shadow:0 40px 100px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.15),0 0 150px rgba(47,63,174,0.4)}
-.hn-pf-card:nth-child(2):hover{transform:rotate(0deg)scale(1.06)translateY(-10px)!important;z-index:10;opacity:1;box-shadow:0 40px 100px rgba(239,28,36,0.4)}
-.hn-pf-card:nth-child(3):hover{transform:rotate(0deg)scale(1.06)translateY(-10px)!important;z-index:10;opacity:1;box-shadow:0 40px 100px rgba(107,33,168,0.35)}
+.hn-pf-card:nth-child(1){width:290px;height:370px;background:linear-gradient(145deg,#2a3cc9,#1a2470);bottom:0;right:0;transform:rotate(-4deg)translateY(0);z-index:3;box-shadow:0 20px 60px rgba(42,60,201,0.3),0 0 0 1px rgba(255,255,255,0.15)}
+.hn-pf-card:nth-child(2){width:260px;height:330px;background:linear-gradient(145deg,#ef1c24,#a01018);bottom:25px;right:50px;transform:rotate(3deg);z-index:2;opacity:.8;box-shadow:0 15px 50px rgba(239,28,36,0.25)}
+.hn-pf-card:nth-child(3){width:230px;height:290px;background:linear-gradient(145deg,#7c3aed,#4a1d8e);bottom:55px;right:110px;transform:rotate(-1deg);z-index:1;opacity:.55;box-shadow:0 15px 40px rgba(107,33,168,0.2)}
+.hn-pf-card:nth-child(1):hover{transform:rotate(0deg)scale(1.06)translateY(-10px)!important;z-index:10;box-shadow:0 30px 80px rgba(42,60,201,0.35),0 0 0 1px rgba(255,255,255,0.2)}
+.hn-pf-card:nth-child(2):hover{transform:rotate(0deg)scale(1.06)translateY(-10px)!important;z-index:10;opacity:1;box-shadow:0 30px 80px rgba(239,28,36,0.3)}
+.hn-pf-card:nth-child(3):hover{transform:rotate(0deg)scale(1.06)translateY(-10px)!important;z-index:10;opacity:1;box-shadow:0 30px 80px rgba(107,33,168,0.25)}
 .hn-pf-icon{font-size:3.8rem;margin-bottom:16px;position:relative;z-index:2}
 .hn-pf-name{font-family:'Outfit','Bebas Neue',sans-serif;font-size:1.5rem;color:#fff;letter-spacing:5px;text-transform:uppercase;position:relative;z-index:2}
-.hn-pf-tag{font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:3px;text-transform:uppercase;margin-top:6px;position:relative;z-index:2}
+.hn-pf-tag{font-size:0.65rem;color:rgba(255,255,255,0.5);letter-spacing:3px;text-transform:uppercase;margin-top:6px;position:relative;z-index:2}
 .hn-pf-bubble{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.35),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.15);animation:bubbleFloat 5s ease-in-out infinite}
 @keyframes bubbleFloat{0%,100%{transform:translateY(0)scale(1)}50%{transform:translateY(-15px)scale(1.08)}}
 
-.hn-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.25);font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;z-index:10;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)1sboth}
-.hn-scroll-line{width:1px;height:50px;background:rgba(255,255,255,0.1);position:relative;overflow:hidden}
+.hn-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gray-400);font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;z-index:10;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)1sboth}
+.hn-scroll-line{width:1px;height:50px;background:var(--gray-200);position:relative;overflow:hidden}
 .hn-scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:linear-gradient(to bottom,var(--red),transparent);animation:scrollPulse2s ease-in-out infinite}
 @keyframes scrollPulse{0%{top:-100%}100%{top:200%}}
 
@@ -112,14 +112,14 @@
 .hn-right{order:0}
 .hn-product-float{max-width:340px;margin:0 auto 40px}
 .hn-stats-row{grid-template-columns:repeat(3,1fr)}
-.hn-stat{text-align:center;border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:12px}
+.hn-stat{text-align:center;border-right:none;border-bottom:1px solid var(--gray-200);padding-bottom:12px}
 }
 @media(max-width:768px){
 .hn-pf-card:nth-child(2),.hn-pf-card:nth-child(3){display:none}
 .hn-pf-card:nth-child(1){width:230px;height:290px;position:relative;transform:rotate(0);bottom:auto;right:auto;margin:0 auto}
 .hn-product-float{max-width:260px;aspect-ratio:auto;height:310px}
 .hn-stats-row{grid-template-columns:1fr;gap:12px}
-.hn-stat{border-bottom:1px solid rgba(255,255,255,0.08);border-right:none}
+.hn-stat{border-bottom:1px solid var(--gray-200);border-right:none}
 .hn-title{font-size:clamp(2.8rem,10vw,4.2rem)}
 }
 
@@ -148,8 +148,8 @@
 .promo-bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.3),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.15);animation:bubbleFloat5s ease-in-out infinite}
 
 /* ===== CTA SECTION ===== */
-.cta-section{background:linear-gradient(135deg,#070c2e0%,#1e2a8530%,#2f3fae50%,#6b21a875%,#ef1c24100%);padding:100px7%;position:relative;overflow:hidden;text-align:center}
-.cta-section::before{content:'';position:absolute;inset:0;opacity:0.03;background:repeating-linear-gradient(45deg,#fff0,#fff1px,transparent0,transparent30px)}
+.cta-section{background:linear-gradient(135deg,var(--gray-50)0%,var(--gray-100)40%,#e8eaf460%,#dde0ef100%);padding:100px7%;position:relative;overflow:hidden;text-align:center}
+.cta-section::before{content:'';position:absolute;inset:0;opacity:0.02;background:repeating-linear-gradient(45deg,var(--gray-300)0,var(--gray-300)1px,transparent0,transparent30px)}
 .cta-section .hero-glow{position:absolute}
 
 /* ===== STEP NUM GRADIENT ===== */
@@ -208,7 +208,7 @@
         <span class="line">Clean <span class="hl">Homes</span>,</span>
         <span class="line">Fresh <span class="hl">Living</span>.</span>
       </h1>
-      <p class="hn-sub">Powerful foam. Brilliant results. Just one scoop creates rich foam that gets into every fibre — removing dirt and leaving clothes fresh. <strong style="color:rgba(255,255,255,0.85);">Inonyatsopupuma! Iyabhubhudla!</strong></p>
+      <p class="hn-sub">Powerful foam. Brilliant results. Just one scoop creates rich foam that gets into every fibre — removing dirt and leaving clothes fresh. <strong style="color:var(--text-dark);">Inonyatsopupuma! Iyabhubhudla!</strong></p>
       <div class="hn-btns">
         <a href="products.html" class="btn btn-primary magnetic">Explore Products →</a>
         <a href="#howto" class="btn btn-outline magnetic">How To Use</a>
@@ -306,36 +306,36 @@
 
 <!-- PRODUCTS -->
 <section id="products" style="background:var(--navy);position:relative;padding-top:80px;">
-  <div style="position:absolute;inset:0;opacity:0.02;background:repeating-linear-gradient(45deg,#fff0,#fff1px,transparent0,transparent30px);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;opacity:0.02;background:repeating-linear-gradient(45deg,var(--gray-300)0,var(--gray-300)1px,transparent0,transparent30px);pointer-events:none;"></div>
   <div style="text-align:center;position:relative;z-index:1;">
-    <div class="section-tag reveal" style="color:rgba(255,255,255,0.4);">Our Products</div>
-    <h2 class="section-title reveal stagger-1" style="color:#fff;">Professional <span style="color:var(--red);">Cleaning</span> Solutions</h2>
-    <p class="reveal stagger-2" style="font-size:1rem;color:rgba(255,255,255,0.5);max-width:540px;margin:0 auto 40px;">From flagship washing powder to industrial-strength cleaners — Smart Wash has every home and business covered.</p>
+    <div class="section-tag reveal" style="color:var(--gray-400);">Our Products</div>
+    <h2 class="section-title reveal stagger-1" style="color:var(--text-dark);">Professional <span style="color:var(--red);">Cleaning</span> Solutions</h2>
+    <p class="reveal stagger-2" style="font-size:1rem;color:var(--gray-500);max-width:540px;margin:0 auto 40px;">From flagship washing powder to industrial-strength cleaners — Smart Wash has every home and business covered.</p>
   </div>
   <div class="products-grid" style="position:relative;z-index:1;">
-    <div class="product-card reveal stagger-1" data-cat="powder" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);">
+    <div class="product-card reveal stagger-1" data-cat="powder" style="background:#fff;border-color:var(--gray-200);">
       <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);"><div class="bubble-deco" style="width:40px;height:40px;top:20%;left:15%;"></div><div class="bubble-deco" style="width:25px;height:25px;bottom:30%;right:20%;animation-delay:1s;"></div><div class="product-emoji">🧼</div></div></div>
-      <div class="product-body" style="background:rgba(255,255,255,0.03);"><span class="product-cat" style="background:rgba(47,63,174,0.15);color:var(--blue-light);">Best Seller</span><h3 class="product-name" style="color:#fff;">Smart Wash Original</h3><p class="product-desc" style="color:rgba(255,255,255,0.55);">Our flagship washing powder with rich foam formula. Penetrates deep into fibres to lift stubborn stains.</p><div class="product-tags"><span class="tag tag-red">Stain Removal</span><span class="tag tag-blue">Rich Foam</span><span class="tag tag-yellow">Fresh Scent</span></div><button class="product-cta" data-modal="modal-original" style="background:var(--red);">View Details →</button></div>
+      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(47,63,174,0.12);color:var(--blue);">Best Seller</span><h3 class="product-name" style="color:var(--text-dark);">Smart Wash Original</h3><p class="product-desc" style="color:var(--gray-500);">Our flagship washing powder with rich foam formula. Penetrates deep into fibres to lift stubborn stains.</p><div class="product-tags"><span class="tag tag-red">Stain Removal</span><span class="tag tag-blue">Rich Foam</span><span class="tag tag-yellow">Fresh Scent</span></div><button class="product-cta" data-modal="modal-original" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-2" data-cat="powder" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);">
+    <div class="product-card reveal stagger-2" data-cat="powder" style="background:#fff;border-color:var(--gray-200);">
       <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);"><div class="bubble-deco" style="width:35px;height:35px;top:25%;right:20%;"></div><div class="product-emoji">🌸</div></div></div>
-      <div class="product-body" style="background:rgba(255,255,255,0.03);"><span class="product-cat" style="background:rgba(147,51,234,0.15);color:#c084fc;">Premium</span><h3 class="product-name" style="color:#fff;">Smart Wash Lavender Fresh</h3><p class="product-desc" style="color:rgba(255,255,255,0.55);">Soothing lavender fragrance with powerful cleaning. Clothes smelling divine all day.</p><div class="product-tags"><span class="tag tag-red">Deep Clean</span><span class="tag tag-blue">Lavender</span></div><button class="product-cta" data-modal="modal-lavender" style="background:var(--red);">View Details →</button></div>
+      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(147,51,234,0.12);color:#7c3aed;">Premium</span><h3 class="product-name" style="color:var(--text-dark);">Smart Wash Lavender Fresh</h3><p class="product-desc" style="color:var(--gray-500);">Soothing lavender fragrance with powerful cleaning. Clothes smelling divine all day.</p><div class="product-tags"><span class="tag tag-red">Deep Clean</span><span class="tag tag-blue">Lavender</span></div><button class="product-cta" data-modal="modal-lavender" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-3" data-cat="powder" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);">
+    <div class="product-card reveal stagger-3" data-cat="powder" style="background:#fff;border-color:var(--gray-200);">
       <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);"><div class="bubble-deco" style="width:30px;height:30px;bottom:25%;left:15%;animation-delay:0.5s;"></div><div class="product-emoji">💪</div></div></div>
-      <div class="product-body" style="background:rgba(255,255,255,0.03);"><span class="product-cat" style="background:rgba(239,28,36,0.15);color:var(--red-light);">Industrial</span><h3 class="product-name" style="color:#fff;">Smart Wash Ultra Power</h3><p class="product-desc" style="color:rgba(255,255,255,0.55);">Maximum strength for the toughest stains. Ideal for hotels, hospitals, industrial washing.</p><div class="product-tags"><span class="tag tag-red">Extra Strong</span><span class="tag tag-blue">Bulk</span></div><button class="product-cta" data-modal="modal-ultra" style="background:var(--red);">View Details →</button></div>
+      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(239,28,36,0.12);color:var(--red);">Industrial</span><h3 class="product-name" style="color:var(--text-dark);">Smart Wash Ultra Power</h3><p class="product-desc" style="color:var(--gray-500);">Maximum strength for the toughest stains. Ideal for hotels, hospitals, industrial washing.</p><div class="product-tags"><span class="tag tag-red">Extra Strong</span><span class="tag tag-blue">Bulk</span></div><button class="product-cta" data-modal="modal-ultra" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-4" data-cat="liquid" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);">
+    <div class="product-card reveal stagger-4" data-cat="liquid" style="background:#fff;border-color:var(--gray-200);">
       <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);"><div class="product-emoji">🧴</div></div></div>
-      <div class="product-body" style="background:rgba(255,255,255,0.03);"><span class="product-cat" style="background:rgba(5,150,105,0.15);color:#34d399;">Liquid</span><h3 class="product-name" style="color:#fff;">Dishwashing Liquid</h3><p class="product-desc" style="color:rgba(255,255,255,0.55);">Cuts through grease effortlessly. Concentrated formula — a little goes a long way.</p><div class="product-tags"><span class="tag tag-red">Degreaser</span><span class="tag tag-blue">Concentrated</span></div><button class="product-cta" data-modal="modal-dish" style="background:var(--red);">View Details →</button></div>
+      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(5,150,105,0.12);color:#059669;">Liquid</span><h3 class="product-name" style="color:var(--text-dark);">Dishwashing Liquid</h3><p class="product-desc" style="color:var(--gray-500);">Cuts through grease effortlessly. Concentrated formula — a little goes a long way.</p><div class="product-tags"><span class="tag tag-red">Degreaser</span><span class="tag tag-blue">Concentrated</span></div><button class="product-cta" data-modal="modal-dish" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-5" data-cat="liquid" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);">
+    <div class="product-card reveal stagger-5" data-cat="liquid" style="background:#fff;border-color:var(--gray-200);">
       <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);"><div class="product-emoji">🌲</div></div></div>
-      <div class="product-body" style="background:rgba(255,255,255,0.03);"><span class="product-cat" style="background:rgba(245,158,11,0.15);color:#f59e0b;">Gel</span><h3 class="product-name" style="color:#fff;">Pine Gel</h3><p class="product-desc" style="color:rgba(255,255,255,0.55);">Multi-purpose disinfectant with natural pine freshness. Floors, surfaces, bathrooms.</p><div class="product-tags"><span class="tag tag-red">Disinfectant</span><span class="tag tag-blue">Multi-Purpose</span></div><button class="product-cta" data-modal="modal-pine" style="background:var(--red);">View Details →</button></div>
+      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(245,158,11,0.12);color:#f59e0b;">Gel</span><h3 class="product-name" style="color:var(--text-dark);">Pine Gel</h3><p class="product-desc" style="color:var(--gray-500);">Multi-purpose disinfectant with natural pine freshness. Floors, surfaces, bathrooms.</p><div class="product-tags"><span class="tag tag-red">Disinfectant</span><span class="tag tag-blue">Multi-Purpose</span></div><button class="product-cta" data-modal="modal-pine" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-6" data-cat="industrial" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);">
+    <div class="product-card reveal stagger-6" data-cat="industrial" style="background:#fff;border-color:var(--gray-200);">
       <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);"><div class="product-emoji">✨</div></div></div>
-      <div class="product-body" style="background:rgba(255,255,255,0.03);"><span class="product-cat" style="background:rgba(147,51,234,0.15);color:#c084fc;">Fabric</span><h3 class="product-name" style="color:#fff;">Fabric Softener</h3><p class="product-desc" style="color:rgba(255,255,255,0.55);">Luxurious softness and long-lasting fragrance. Silky smooth, gentle on skin.</p><div class="product-tags"><span class="tag tag-red">Softening</span><span class="tag tag-blue">Fragrance</span></div><button class="product-cta" data-modal="modal-softener" style="background:var(--red);">View Details →</button></div>
+      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(147,51,234,0.12);color:#7c3aed;">Fabric</span><h3 class="product-name" style="color:var(--text-dark);">Fabric Softener</h3><p class="product-desc" style="color:var(--gray-500);">Luxurious softness and long-lasting fragrance. Silky smooth, gentle on skin.</p><div class="product-tags"><span class="tag tag-red">Softening</span><span class="tag tag-blue">Fragrance</span></div><button class="product-cta" data-modal="modal-softener" style="background:var(--red);">View Details →</button></div>
     </div>
   </div>
   <div style="text-align:center;margin-top:40px;position:relative;z-index:1;" class="reveal"><a href="products.html" class="btn btn-primary magnetic">View All Products →</a></div>
@@ -345,8 +345,8 @@
 
 <!-- HOW TO USE -->
 <section id="howto">
-  <div style="position:relative;z-index:1;">
-    <div style="text-align:center;"><div class="section-tag reveal" style="color:rgba(255,255,255,0.5);">How To Use</div><h2 class="section-title reveal stagger-1" style="color:#fff;">Simple Steps. <span style="color:var(--red);">Brilliant Results.</span></h2><p class="reveal stagger-2" style="color:rgba(255,255,255,0.6);max-width:540px;margin:0 auto;font-size:1rem;line-height:1.8;">Just one scoop of Smart Wash is all you need. Follow these 4 easy steps.</p></div>
+  <div style="position:relative;z-index:1;padding:var(--section-pad);">
+    <div style="text-align:center;"><div class="section-tag reveal" style="color:var(--gray-400);">How To Use</div><h2 class="section-title reveal stagger-1" style="color:var(--text-dark);">Simple Steps. <span style="color:var(--red);">Brilliant Results.</span></h2><p class="reveal stagger-2" style="color:var(--gray-500);max-width:540px;margin:0 auto;font-size:1rem;line-height:1.8;">Just one scoop of Smart Wash is all you need. Follow these 4 easy steps.</p></div>
     <div class="steps-grid">
       <div class="step-card reveal stagger-1"><div class="step-num">1</div><h4 class="step-title">Measure</h4><p class="step-text">Measure the right amount of Smart Wash powder based on load size. One scoop does the job.</p></div>
       <div class="step-card reveal stagger-2"><div class="step-num">2</div><h4 class="step-title">Agitate</h4><p class="step-text">Add powder to water and agitate to fully dissolve. Watch the rich foam build!</p></div>
@@ -358,11 +358,11 @@
 
 <!-- INSPIRATION -->
 <section id="inspiration">
-  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,12,60,0.92)0%,rgba(40,20,80,0.88)100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--gray-50)0%,var(--gray-100)100%);"></div>
   <div class="quote-slide-container">
-    <div class="quote-slide active" style="background:linear-gradient(135deg,#1a1060,#2f3fae,#6b21a8);"><div style="position:absolute;inset:0;background:radial-gradient(circle at 15% 25%,rgba(239,28,36,0.08),transparent60%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">There is no limit to what we, as <em>women</em>, can accomplish.</div><div class="qs-author">— Michelle Obama</div><div class="qs-brand">SMART WASH · EMPOWERING WOMEN</div></div></div>
-    <div class="quote-slide" style="background:linear-gradient(135deg,#1a1060,#3a1c85,#6b21a8);"><div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(245,197,24,0.1),transparent50%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">Don't blend in. <em>Stand out</em> and leave your mark on the world.</div><div class="qs-author">— Viola Davis</div><div class="qs-brand">SMART WASH · STAND OUT</div></div></div>
-    <div class="quote-slide" style="background:linear-gradient(135deg,#0d1340,#1e2a85,#2f3fae);"><div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(239,28,36,0.1),transparent50%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">Cleanliness is next to <em>godliness</em> — and Smart Wash makes it effortless.</div><div class="qs-author">— Smart Wash Philosophy</div><div class="qs-brand">SMART WASH · CLEAN LIVING</div></div></div>
+    <div class="quote-slide active" style="background:linear-gradient(135deg,#eef0f8,#dde0f0,#f0e8f8);"><div style="position:absolute;inset:0;background:radial-gradient(circle at 15% 25%,rgba(239,28,36,0.06),transparent60%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">There is no limit to what we, as <em>women</em>, can accomplish.</div><div class="qs-author">— Michelle Obama</div><div class="qs-brand">SMART WASH · EMPOWERING WOMEN</div></div></div>
+    <div class="quote-slide" style="background:linear-gradient(135deg,#eef0f8,#e0d8f0,#f0e8f8);"><div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(245,197,24,0.08),transparent50%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">Don't blend in. <em>Stand out</em> and leave your mark on the world.</div><div class="qs-author">— Viola Davis</div><div class="qs-brand">SMART WASH · STAND OUT</div></div></div>
+    <div class="quote-slide" style="background:linear-gradient(135deg,#e8eaf6,#dde0f0,#eef0f8);"><div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(239,28,36,0.06),transparent50%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">Cleanliness is next to <em>godliness</em> — and Smart Wash makes it effortless.</div><div class="qs-author">— Smart Wash Philosophy</div><div class="qs-brand">SMART WASH · CLEAN LIVING</div></div></div>
   </div>
   <button class="q-arrow q-arrow-left" aria-label="Previous quote">←</button>
   <button class="q-arrow q-arrow-right" aria-label="Next quote">→</button>
@@ -385,12 +385,12 @@
 
 <!-- CTA -->
 <section class="cta-section">
-  <div class="hero-glow" style="width:500px;height:500px;background:rgba(239,28,36,0.1);top:-25%;left:-10%;"></div>
-  <div class="hero-glow" style="width:400px;height:400px;background:rgba(47,63,174,0.12);bottom:-20%;right:-5%;animation-delay:2s;"></div>
+  <div class="hero-glow" style="width:500px;height:500px;background:rgba(239,28,36,0.06);top:-25%;left:-10%;"></div>
+  <div class="hero-glow" style="width:400px;height:400px;background:rgba(47,63,174,0.06);bottom:-20%;right:-5%;animation-delay:2s;"></div>
   <div style="position:relative;z-index:1;" class="reveal">
-    <div class="section-tag" style="color:rgba(255,255,255,0.4);">Get Started</div>
-    <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:800;color:#fff;margin-bottom:16px;">Ready for <span style="color:var(--red);">Brilliant</span> Clean?</h2>
-    <p style="color:rgba(255,255,255,0.55);max-width:540px;margin:0 auto 36px;font-size:1.05rem;line-height:1.8;">Whether you need a single pack or a bulk order, we've got you covered. Contact us for pricing and delivery.</p>
+    <div class="section-tag" style="color:var(--gray-400);">Get Started</div>
+    <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:800;color:var(--text-dark);margin-bottom:16px;">Ready for <span style="color:var(--red);">Brilliant</span> Clean?</h2>
+    <p style="color:var(--gray-500);max-width:540px;margin:0 auto 36px;font-size:1.05rem;line-height:1.8;">Whether you need a single pack or a bulk order, we've got you covered. Contact us for pricing and delivery.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="contact.html" class="btn btn-primary magnetic">Contact Us →</a>
       <a href="https://wa.me/263770000000" class="btn btn-outline magnetic" target="_blank">💬 WhatsApp Us</a>
@@ -399,14 +399,14 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer style="background:#0d1340;">
   <div class="footer-grid">
     <div class="footer-brand"><div class="logo">SMART<span>WASH</span></div><p>Zimbabwe's trusted cleaning brand. Professional-grade washing powder and cleaning products for homes and businesses.</p><div style="margin-top:24px;"><a href="https://wa.me/263770000000" class="btn btn-primary magnetic" style="padding:12px 28px;font-size:0.72rem;">💬 WhatsApp Us</a></div></div>
     <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div><h4>Products</h4><ul><li><a href="products.html">Smart Wash Original</a></li><li><a href="products.html">Lavender Fresh</a></li><li><a href="products.html">Ultra Power</a></li><li><a href="products.html">Dishwashing Liquid</a></li><li><a href="products.html">Pine Gel</a></li></ul></div>
     <div><h4>Newsletter</h4><p style="color:rgba(255,255,255,0.5);font-size:0.85rem;">Get cleaning tips and special offers.</p><form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Subscribed!';setTimeout(()=>this.querySelector('button').textContent='Subscribe',3000);"><input type="email" placeholder="Your email" required><button type="submit">Subscribe</button></form></div>
   </div>
-  <div class="footer-bottom"><p>&copy; 2026 Smart Wash by Makoti Detergents. All rights reserved.</p><div class="footer-social"><a href="#">f</a><a href="#">in</a><a href="#">𝕏</a><a href="https://wa.me/263770000000">💬</a></div></div>
+  <div class="footer-bottom" style="border-color:rgba(255,255,255,0.08);"><p>&copy; 2026 Smart Wash by Makoti Detergents. All rights reserved.</p><div class="footer-social"><a href="#">f</a><a href="#">in</a><a href="#">𝕏</a><a href="https://wa.me/263770000000">💬</a></div></div>
 </footer>
 
 <!-- MODALS -->
@@ -430,8 +430,8 @@
     ctx.clearRect(0,0,w,h);
     particles.forEach(p=>{
       ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(255,255,255,${p.o})`;ctx.fill();
-      ctx.strokeStyle=`rgba(255,255,255,${p.o*2})`;ctx.lineWidth=0.5;ctx.stroke();
+      ctx.fillStyle=`rgba(47,63,174,${p.o})`;ctx.fill();
+      ctx.strokeStyle=`rgba(47,63,174,${p.o*2})`;ctx.lineWidth=0.5;ctx.stroke();
       p.x+=p.dx;p.y+=p.dy;
       if(p.x<-p.r)p.x=w+p.r;if(p.x>w+p.r)p.x=-p.r;
       if(p.y<-p.r)p.y=h+p.r;if(p.y>h+p.r)p.y=-p.r;
@@ -439,7 +439,7 @@
     for(let i=0;i<particles.length;i++){
       for(let j=i+1;j<particles.length;j++){
         const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<130){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(255,255,255,${0.04*(1-dist/130)})`;ctx.lineWidth=0.5;ctx.stroke();}
+        if(dist<130){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(47,63,174,${0.08*(1-dist/130)})`;ctx.lineWidth=0.5;ctx.stroke();}
       }
     }
     requestAnimationFrame(draw);
@@ -457,20 +457,20 @@
   img.style.opacity='0';
   img.onload=function(){
     img.style.transition='opacity 1.5s ease';
-    img.style.opacity='1';
+    img.style.opacity='0.5';
   };
-  if(img.complete){img.style.transition='opacity 1.5s ease';img.style.opacity='1';}
+  if(img.complete){img.style.transition='opacity 1.5s ease';img.style.opacity='0.5';}
 })();
 
 // ===== GLOBAL RISING BUBBLES =====
 (function(){
   const container=document.getElementById('global-bubbles');if(!container)return;
   const colors=[
-    {bg:'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), rgba(255,255,255,0.02))',border:'rgba(255,255,255,0.2)'},
-    {bg:'radial-gradient(circle at 30% 30%, rgba(239,28,36,0.25), rgba(239,28,36,0.02))',border:'rgba(239,28,36,0.3)'},
-    {bg:'radial-gradient(circle at 30% 30%, rgba(47,63,174,0.25), rgba(47,63,174,0.02))',border:'rgba(47,63,174,0.3)'},
-    {bg:'radial-gradient(circle at 30% 30%, rgba(107,33,168,0.2), rgba(107,33,168,0.02))',border:'rgba(107,33,168,0.25)'},
-    {bg:'radial-gradient(circle at 30% 30%, rgba(245,197,24,0.18), rgba(245,197,24,0.02))',border:'rgba(245,197,24,0.2)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(47,63,174,0.15), rgba(47,63,174,0.02))',border:'rgba(47,63,174,0.2)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(239,28,36,0.15), rgba(239,28,36,0.02))',border:'rgba(239,28,36,0.2)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(107,33,168,0.12), rgba(107,33,168,0.02))',border:'rgba(107,33,168,0.15)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(245,197,24,0.12), rgba(245,197,24,0.02))',border:'rgba(245,197,24,0.15)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(26,26,46,0.08), rgba(26,26,46,0.01))',border:'rgba(26,26,46,0.08)'},
   ];
   let bubbleCount=0;
   function createBubble(){
