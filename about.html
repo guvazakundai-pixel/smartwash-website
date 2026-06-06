@@ -6,7 +6,7 @@
 <title>About Smart Wash | Our Story, Mission & Vision</title>
 <meta name="description" content="Learn about Smart Wash — Zimbabwe's trusted cleaning brand. Discover our mission, values, and commitment to clean homes and fresh living.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -34,7 +34,7 @@
 </div>
 
 <!-- PAGE HEADER -->
-<header class="page-header" style="background:#0d1340;">
+<header class="page-header">
   <div class="page-header-particles" id="heroParticles"></div>
   <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%, rgba(239,28,36,0.1), transparent 50%);"></div>
   <div class="page-header-content">
@@ -45,11 +45,11 @@
 </header>
 
 <!-- ABOUT STORY -->
-<section style="background:var(--gray-50);">
+<section class="about-section">
   <div class="about-grid">
     <div class="about-visual reveal-left">
-      <div class="about-visual-card" style="padding:60px 40px;background:#0d1340;">
-        <div style="font-size:4rem; margin-bottom:20px;">🏭</div>
+      <div class="about-visual-card" style="padding:60px 40px;">
+        <div style="font-size:4rem; margin-bottom:20px;position:relative;z-index:1;">🏭</div>
         <div class="about-big-num"><span class="count-up" data-target="2015">0</span></div>
         <div class="about-big-label">Year Founded</div>
         <div style="margin-top:24px; position:relative;z-index:1;">
@@ -57,24 +57,24 @@
         </div>
       </div>
     </div>
-    <div class="about-text reveal-right">
+    <div class="reveal-right">
       <div class="section-tag">Who We Are</div>
       <h2 class="section-title">Proudly <span class="text-gradient">Zimbabwean</span></h2>
-      <p>Smart Wash is manufactured by Makoti Detergents, a proudly Zimbabwean company based in Harare. We specialise in producing high-quality washing powder, dishwashing liquid, pine gel, thick bleach, and fabric softener.</p>
-      <p>Our products are formulated specifically for Zimbabwean conditions — hard water, tough stains, and heavy use. Every scoop of Smart Wash delivers powerful foam that penetrates deep into fibres, lifting dirt and leaving clothes fresh and clean.</p>
-      <p>We believe that clean homes lead to healthier, happier communities. That's why we never compromise on quality, even while keeping our prices accessible to every household.</p>
+      <p style="color:var(--gray-500);line-height:1.9;margin-bottom:16px;">Smart Wash is manufactured by Makoti Detergents, a proudly Zimbabwean company based in Harare. We specialise in producing high-quality washing powder, dishwashing liquid, pine gel, thick bleach, and fabric softener.</p>
+      <p style="color:var(--gray-500);line-height:1.9;margin-bottom:16px;">Our products are formulated specifically for Zimbabwean conditions — hard water, tough stains, and heavy use. Every scoop of Smart Wash delivers powerful foam that penetrates deep into fibres, lifting dirt and leaving clothes fresh and clean.</p>
+      <p style="color:var(--gray-500);line-height:1.9;margin-bottom:16px;">We believe that clean homes lead to healthier, happier communities. That's why we never compromise on quality, even while keeping our prices accessible to every household.</p>
     </div>
   </div>
 </section>
 
 <!-- MISSION & VISION -->
-<section style="background:#fff;">
+<section style="background:linear-gradient(180deg,var(--foam),var(--lavender-foam));">
   <div style="text-align:center;" class="reveal">
     <div class="section-tag">Our Purpose</div>
     <h2 class="section-title">Mission & <span class="text-gradient">Vision</span></h2>
   </div>
   <div class="about-grid" style="margin-top:50px;">
-    <div style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));border-radius:var(--radius-xl);padding:48px 36px;color:#fff;position:relative;overflow:hidden;" class="reveal-left">
+    <div style="background:linear-gradient(135deg,var(--blue-dark),var(--blue),var(--lavender));border-radius:var(--radius-xl);padding:48px 36px;color:#fff;position:relative;overflow:hidden;" class="reveal-left">
       <div style="position:absolute;inset:0;opacity:0.04;background:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 20px);"></div>
       <div style="font-size:2.5rem;margin-bottom:16px;position:relative;z-index:1;">🎯</div>
       <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:16px;position:relative;z-index:1;">Our Mission</h3>
@@ -90,7 +90,7 @@
 </section>
 
 <!-- VALUES -->
-<section style="background:var(--gray-50);">
+<section class="features-section">
   <div style="text-align:center;" class="reveal">
     <div class="section-tag">Our Values</div>
     <h2 class="section-title">What <span class="text-gradient">Drives Us</span></h2>
@@ -130,7 +130,7 @@
 </section>
 
 <!-- STATS -->
-<section style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:#fff;">
+<section style="background:linear-gradient(135deg,var(--blue-dark),var(--blue),var(--lavender));color:#fff;">
   <div style="text-align:center;" class="reveal">
     <div class="section-tag" style="color:rgba(255,255,255,0.5);">By The Numbers</div>
     <h2 class="section-title" style="color:#fff;">Our <span style="color:var(--red);">Impact</span></h2>
@@ -156,7 +156,7 @@
 </section>
 
 <!-- INDUSTRIES SERVED -->
-<section id="industries" style="background:#fff;">
+<section id="industries" class="industries-section">
   <div style="text-align:center;" class="reveal">
     <div class="section-tag">Industries We Serve</div>
     <h2 class="section-title">Built for <span class="text-gradient">Every</span> Sector</h2>
@@ -195,7 +195,7 @@
   </div>
 </section>
 
-<footer style="background:linear-gradient(180deg, #0d1340 0%, #070c2e 100%);">
+<footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="logo">SMART<span>WASH</span></div>

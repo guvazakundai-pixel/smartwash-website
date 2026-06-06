@@ -10,160 +10,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* ===== GLOBAL BUBBLES ===== */
 #global-bubbles{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden}
 .gb{position:absolute;border-radius:50%;pointer-events:none;opacity:0;animation:bubbleRise linear infinite}
-.gb::before{content:'';position:absolute;top:15%;left:20%;width:35%;height:25%;background:radial-gradient(ellipse,rgba(47,63,174,0.15),transparent);border-radius:50%;transform:rotate(-25deg)}
-.gb::after{content:'';position:absolute;top:8%;left:10%;width:15%;height:8%;background:rgba(47,63,174,0.08);border-radius:50%;filter:blur(1px)}
-@keyframes bubbleRise{
-0%{transform:translateY(105vh) translateX(0) scale(0.2);opacity:0}
-6%{opacity:var(--bub-o,0.5)}
-25%{transform:translateY(70vh) translateX(var(--bub-dx,20px)) scale(0.8)}
-50%{transform:translateY(40vh) translateX(var(--bub-dx2,-15px)) scale(1);opacity:var(--bub-o,0.5)}
-75%{transform:translateY(10vh) translateX(var(--bub-dx3,10px)) scale(1.1);opacity:var(--bub-o3,0.3)}
-100%{transform:translateY(-10vh) translateX(var(--bub-dx4,-25px)) scale(1.3);opacity:0}
-}
-/* Popping bubble */
+.gb::before{content:'';position:absolute;top:12%;left:18%;width:30%;height:22%;background:radial-gradient(ellipse,rgba(255,255,255,0.3),transparent);border-radius:50%;transform:rotate(-20deg)}
 .gb-pop{animation:bubblePop 0.6s ease-out forwards !important}
-@keyframes bubblePop{
-0%{transform:scale(1);opacity:0.6}
-50%{transform:scale(1.5);opacity:0.3}
-100%{transform:scale(2);opacity:0}
-}
-
-/* ===== COLOR GRADE ===== */
-.color-grade{position:fixed;inset:0;z-index:9997;pointer-events:none;background:linear-gradient(180deg,rgba(47,63,174,0.03)0%,transparent15%,transparent85%,rgba(47,63,174,0.05)100%);mix-blend-mode:multiply}
-
-/* ===== FONTS ===== */
-.hn-title{font-family:'Outfit',sans-serif!important;font-weight:800!important;letter-spacing:-3px!important}
-.hn-sub,.hn-badge,.trust-item,.btn,.marquee-item{font-family:'Space Grotesk',sans-serif!important}
-.section-title{font-family:'Outfit','Playfair Display',serif!important;font-weight:800!important}
-.product-name{font-family:'Outfit',sans-serif!important;font-weight:700!important}
-.nav-logo{font-family:'Outfit','Bebas Neue',sans-serif!important;font-weight:800!important;letter-spacing:4px!important}
-.hn-stat-num,.promo-big-text,.pre-logo,.step-num{font-family:'Outfit','Bebas Neue',sans-serif!important}
-.text-gradient{background:linear-gradient(135deg,var(--red)0%,var(--yellow)50%,var(--purple-light)100%);background-size:200%200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientSweep 4s ease-in-out infinite}
-@keyframes gradientSweep{0%,100%{background-position:0%50%}50%{background-position:100%50%}}
-
-/* ===== HERO ===== */
-.hn-title{font-family:'Outfit',serif;font-size:clamp(3.4rem,8vw,7.5rem);font-weight:800;line-height:.93;color:var(--text-dark);letter-spacing:-3px;margin-bottom:24px}
-.hero-new{min-height:100vh;min-height:100dvh;position:relative;overflow:hidden;display:flex;align-items:center;background:linear-gradient(135deg,#f8f9fc 0%,#eef0f8 30%,#f0f2f8 60%,#fff 100%)}
-.hero-bg-img{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-bg-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:0;transition:opacity 2s ease}
-@media(max-width:768px){.hero-bg-img img{object-position:center 20%}}
-.hero-canvas-bg{position:absolute;inset:0;z-index:1;opacity:0.15}
-.hero-grad-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(155deg,rgba(248,249,252,0.85)0%,rgba(248,249,252,0.7)35%,rgba(238,240,248,0.6)60%,rgba(255,255,255,0.75)100%)}
-.hero-aurora{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(45deg,rgba(239,28,36,0.03),rgba(47,63,174,0.05),rgba(107,33,168,0.04),rgba(245,197,24,0.02),rgba(239,28,36,0.03));background-size:400%400%;animation:auroraShift 12s ease-in-out infinite}
-.hero-noise{position:absolute;inset:0;z-index:4;opacity:0.015;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px128px}
-.hero-glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(100px);z-index:3}
-.hg1{width:600px;height:600px;background:rgba(239,28,36,0.06);top:-15%;right:5%;animation:glowPulse 8s ease-in-out infinite}
-.hg2{width:500px;height:500px;background:rgba(47,63,174,0.08);bottom:5%;left:-5%;animation:glowPulse 10s ease-in-out infinite 2s}
-.hg3{width:400px;height:400px;background:rgba(107,33,168,0.05);top:30%;left:35%;animation:glowPulse 7s ease-in-out infinite 4s}
-.hg4{width:300px;height:300px;background:rgba(245,197,24,0.04);top:60%;right:20%;animation:glowPulse 9s ease-in-out infinite 1s}
-@keyframes glowPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.15)}}
-
-.hero-content{position:relative;z-index:10;width:100%;max-width:1400px;margin:0 auto;padding:120px7%80px;display:grid;grid-template-columns:1fr1fr;gap:80px;align-items:center}
-.hn-left{position:relative}
-.hn-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(26,26,46,0.06);border:1px solid rgba(26,26,46,0.12);backdrop-filter:blur(20px);border-radius:30px;padding:8px22px;margin-bottom:28px;color:var(--gray-600);font-size:0.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.3sboth}
-.hn-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red),0 0 30px rgba(239,28,36,0.4);animation:pulse2s ease-in-out infinite}
-@keyframes pulse2{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.hn-title .line{display:block;overflow:hidden;animation:clipReveal 1s cubic-bezier(0.16,1,0.3,1)both}
-.hn-title .line:nth-child(2){animation-delay:.15s}
-@keyframes clipReveal{from{clip-path:inset(0100%00);opacity:0;transform:translateY(50px)}to{clip-path:inset(0000);opacity:1;transform:translateY(0)}}
-.hn-title .hl{color:var(--red);font-style:italic;position:relative;display:inline-block}
-.hn-title .hl::after{content:'';position:absolute;bottom:8px;left:0;width:100%;height:10px;background:linear-gradient(90deg,var(--red),var(--yellow));opacity:.25;border-radius:5px}
-.hn-sub{font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,2vw,1.2rem);color:var(--gray-500);max-width:520px;line-height:1.8;margin-bottom:36px;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.5sboth}
-@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.hn-btns{display:flex;gap:16px;flex-wrap:wrap;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.65sboth}
-.hn-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)0.8sboth}
-.hn-stat{padding:20px0;border-right:1px solid var(--gray-200);text-align:left}
-.hn-stat:last-child{border-right:none}
-.hn-stat-num{font-family:'Outfit','Bebas Neue',sans-serif;font-size:2.8rem;color:var(--text-dark);line-height:1;letter-spacing:1px}
-.hn-stat-num .red{color:var(--red)}
-.hn-stat-label{font-size:0.62rem;color:var(--gray-400);letter-spacing:2px;text-transform:uppercase;margin-top:6px;font-weight:600}
-
-/* ===== HERO PRODUCT CARDS ===== */
-.hn-right{position:relative;display:flex;justify-content:center;align-items:center}
-.hn-product-float{position:relative;width:100%;max-width:500px;aspect-ratio:3/4;animation:slideUp1scubic-bezier(0.16,1,0.3,1)0.4sboth}
-.hn-pf-card{position:absolute;border-radius:24px;overflow:hidden;transition:all0.5scubic-bezier(0.4,0,0.2,1);cursor:pointer}
-.hn-pf-card::before{content:'';position:absolute;inset:0;opacity:0.04;z-index:1;background:repeating-linear-gradient(45deg,#fff0,#fff1px,transparent0,transparent20px)}
-.hn-pf-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;position:relative;z-index:2}
-.hn-pf-card:nth-child(1){width:290px;height:370px;background:linear-gradient(145deg,#2a3cc9,#1a2470);bottom:0;right:0;transform:rotate(-4deg)translateY(0);z-index:3;box-shadow:0 20px 60px rgba(42,60,201,0.3),0 0 0 1px rgba(255,255,255,0.15)}
-.hn-pf-card:nth-child(2){width:260px;height:330px;background:linear-gradient(145deg,#ef1c24,#a01018);bottom:25px;right:50px;transform:rotate(3deg);z-index:2;opacity:.8;box-shadow:0 15px 50px rgba(239,28,36,0.25)}
-.hn-pf-card:nth-child(3){width:230px;height:290px;background:linear-gradient(145deg,#7c3aed,#4a1d8e);bottom:55px;right:110px;transform:rotate(-1deg);z-index:1;opacity:.55;box-shadow:0 15px 40px rgba(107,33,168,0.2)}
-.hn-pf-card:nth-child(1):hover{transform:rotate(0deg)scale(1.06)translateY(-10px)!important;z-index:10;box-shadow:0 30px 80px rgba(42,60,201,0.35),0 0 0 1px rgba(255,255,255,0.2)}
-.hn-pf-card:nth-child(2):hover{transform:rotate(0deg)scale(1.06)translateY(-10px)!important;z-index:10;opacity:1;box-shadow:0 30px 80px rgba(239,28,36,0.3)}
-.hn-pf-card:nth-child(3):hover{transform:rotate(0deg)scale(1.06)translateY(-10px)!important;z-index:10;opacity:1;box-shadow:0 30px 80px rgba(107,33,168,0.25)}
-.hn-pf-icon{font-size:3.8rem;margin-bottom:16px;position:relative;z-index:2}
-.hn-pf-name{font-family:'Outfit','Bebas Neue',sans-serif;font-size:1.5rem;color:#fff;letter-spacing:5px;text-transform:uppercase;position:relative;z-index:2}
-.hn-pf-tag{font-size:0.65rem;color:rgba(255,255,255,0.5);letter-spacing:3px;text-transform:uppercase;margin-top:6px;position:relative;z-index:2}
-.hn-pf-bubble{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.35),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.15);animation:bubbleFloat 5s ease-in-out infinite}
-@keyframes bubbleFloat{0%,100%{transform:translateY(0)scale(1)}50%{transform:translateY(-15px)scale(1.08)}}
-
-.hn-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gray-400);font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;z-index:10;animation:slideUp0.8scubic-bezier(0.16,1,0.3,1)1sboth}
-.hn-scroll-line{width:1px;height:50px;background:var(--gray-200);position:relative;overflow:hidden}
-.hn-scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:linear-gradient(to bottom,var(--red),transparent);animation:scrollPulse2s ease-in-out infinite}
-@keyframes scrollPulse{0%{top:-100%}100%{top:200%}}
-
-@media(max-width:1100px){
-.hero-content{grid-template-columns:1fr;text-align:center;padding:100px5%80px}
-.hn-left{order:1;display:flex;flex-direction:column;align-items:center}
-.hn-sub{margin-left:auto;margin-right:auto}
-.hn-btns{justify-content:center}
-.hn-right{order:0}
-.hn-product-float{max-width:340px;margin:0 auto 40px}
-.hn-stats-row{grid-template-columns:repeat(3,1fr)}
-.hn-stat{text-align:center;border-right:none;border-bottom:1px solid var(--gray-200);padding-bottom:12px}
-}
-@media(max-width:768px){
-.hn-pf-card:nth-child(2),.hn-pf-card:nth-child(3){display:none}
-.hn-pf-card:nth-child(1){width:230px;height:290px;position:relative;transform:rotate(0);bottom:auto;right:auto;margin:0 auto}
-.hn-product-float{max-width:260px;aspect-ratio:auto;height:310px}
-.hn-stats-row{grid-template-columns:1fr;gap:12px}
-.hn-stat{border-bottom:1px solid var(--gray-200);border-right:none}
-.hn-title{font-size:clamp(2.8rem,10vw,4.2rem)}
-}
-
-/* ===== TRUST BAR ===== */
-.trust-bar{background:#fff;padding:24px7%;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;border-bottom:1px solid var(--gray-200)}
-.trust-item{display:flex;align-items:center;gap:10px;color:var(--text-mid);font-size:0.82rem;font-weight:600;letter-spacing:.5px;transition:all0.3s}
+.color-grade{position:fixed;inset:0;z-index:9997;pointer-events:none;background:linear-gradient(180deg,rgba(139,92,246,0.03)0%,transparent15%,transparent85%,rgba(47,63,174,0.04)100%);mix-blend-mode:multiply}
+.hero-h1 .line{display:block;overflow:hidden;animation:clipReveal 1s cubic-bezier(0.16,1,0.3,1) both}
+.hero-h1 .line:nth-child(2){animation-delay:.15s}
+@keyframes clipReveal{from{clip-path:inset(0 100% 0 0);opacity:0;transform:translateY(50px)}to{clip-path:inset(0 0 0 0);opacity:1;transform:translateY(0)}}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.hero-stat{padding:20px 0;border-right:1px solid rgba(255,255,255,0.12)}
+.hero-stat:last-child{border-right:none}
+.hero-stat-num{font-family:'Outfit','Bebas Neue',sans-serif;font-size:2.8rem;color:#fff;line-height:1;letter-spacing:1px}
+.hero-stat-num .red{color:var(--red)}
+.hero-stat-label{font-size:0.62rem;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;margin-top:6px;font-weight:600}
+.trust-bar{background:var(--glass-bg);backdrop-filter:blur(16px);padding:24px 7%;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;border-bottom:1px solid var(--glass-border)}
+.trust-item{display:flex;align-items:center;gap:10px;color:var(--text-mid);font-size:0.82rem;font-weight:600;transition:all 0.3s}
 .trust-item:hover{color:var(--blue);transform:translateY(-2px)}
-.trust-item .ti-icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,rgba(47,63,174,0.08),rgba(107,33,168,0.06));display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:1px solid rgba(47,63,174,0.08);flex-shrink:0;transition:transform0.3s}
+.trust-item .ti-icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,rgba(47,63,174,0.08),rgba(139,92,246,0.06));display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:1px solid rgba(139,92,246,0.08);flex-shrink:0;transition:transform 0.3s}
 .trust-item:hover .ti-icon{transform:scale(1.1)}
-
-/* ===== WAVE DIVIDERS ===== */
-.wave-divider{width:100%;line-height:0}
-.wave-divider svg{width:100%;height:80px;display:block}
-
-/* ===== PROMO SECTION ===== */
-.promo-section{background:#fff;padding:100px7%;position:relative}
-.promo-grid{display:grid;grid-template-columns:1fr1fr;gap:80px;align-items:center}
-.promo-visual{position:relative;border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#0d13400%,#2f3fae30%,#6b21a860%,#ef1c2490%,#f5c518100%);box-shadow:0 30px 80px rgba(47,63,174,0.25);display:flex;align-items:center;justify-content:center}
-.promo-visual::before{content:'';position:absolute;inset:0;opacity:0.04;background:repeating-linear-gradient(45deg,#fff0,#fff1px,transparent0,transparent24px)}
+.promo-visual{position:relative;border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#1e2a85,#2f3fae,#8b5cf6,#ef1c24);display:flex;align-items:center;justify-content:center}
 .promo-visual-inner{position:relative;z-index:1;text-align:center;padding:40px}
-.promo-big-icon{font-size:6rem;margin-bottom:20px;animation:bubbleFloat4s ease-in-out infinite}
+.promo-big-icon{font-size:6rem;margin-bottom:20px;animation:bubbleFloat 4s ease-in-out infinite}
 .promo-big-text{font-family:'Outfit','Bebas Neue',sans-serif;font-size:3.2rem;color:#fff;letter-spacing:6px;line-height:1}
 .promo-big-text span{color:var(--red)}
 .promo-tagline{font-size:0.75rem;color:rgba(255,255,255,0.45);letter-spacing:4px;text-transform:uppercase;margin-top:8px}
 .promo-bubbles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.promo-bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.3),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.15);animation:bubbleFloat5s ease-in-out infinite}
-
-/* ===== CTA SECTION ===== */
-.cta-section{background:linear-gradient(135deg,var(--gray-50)0%,var(--gray-100)40%,#e8eaf460%,#dde0ef100%);padding:100px7%;position:relative;overflow:hidden;text-align:center}
-.cta-section::before{content:'';position:absolute;inset:0;opacity:0.02;background:repeating-linear-gradient(45deg,var(--gray-300)0,var(--gray-300)1px,transparent0,transparent30px)}
-.cta-section .hero-glow{position:absolute}
-
-/* ===== STEP NUM GRADIENT ===== */
-.step-num{background:linear-gradient(135deg,#ef1c24,#f5c518)!important;font-size:1.6rem!important;box-shadow:0 8px 24px rgba(239,28,36,0.4),0 0 60px rgba(239,28,36,0.15)!important}
-
-/* ===== PRODUCT CARDS GRADIENT HOVER ===== */
-.products-grid .product-card{position:relative}
-.products-grid .product-card::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(239,28,36,0.5),rgba(47,63,174,0.5),rgba(107,33,168,0.5));-webkit-mask:linear-gradient(#fff00)content-box,linear-gradient(#fff00);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity0.4s}
-.products-grid .product-card:hover::before{opacity:1}
-
-/* ===== BUTTON GLOW ===== */
-.btn-primary{background:linear-gradient(135deg,#ef1c24,#ff4a50)!important;box-shadow:0 8px 32px rgba(239,28,36,0.4),0 0 60px rgba(239,28,36,0.15)!important;position:relative;overflow:hidden}
-.btn-primary::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.2)0%,transparent60%);opacity:0;transition:opacity0.4s}
-.btn-primary:hover::after{opacity:1}
+.promo-bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.3),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.15);animation:bubbleFloat 5s ease-in-out infinite}
+.promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:1024px){
+.hero-content{grid-template-columns:1fr;text-align:center;padding:100px 5% 80px}
+.hero-left{order:1;display:flex;flex-direction:column;align-items:center}
+.hero-sub{margin-left:auto;margin-right:auto}
+.hero-btns{justify-content:center}
+.hero-right{order:0}
+.hero-product-card{max-width:300px;margin:0 auto 40px}
+.hero-stats{grid-template-columns:repeat(3,1fr)}
+.hero-stat{text-align:center;border-right:none;border-bottom:1px solid rgba(255,255,255,0.12);padding-bottom:12px}
+}
+@media(max-width:900px){.promo-grid{grid-template-columns:1fr;gap:40px}}
+@media(max-width:768px){
+.hero-pf-card:nth-child(2),.hero-pf-card:nth-child(3){display:none}
+.hero-pf-card:nth-child(1){width:200px;height:260px;position:relative;transform:rotate(0);bottom:auto;right:auto;margin:0 auto}
+.hero-product-card{max-width:220px;height:280px}
+.hero-h1{font-size:clamp(2.8rem,10vw,4.2rem)}
+}
 </style>
 </head>
 <body>
@@ -190,66 +81,62 @@
 <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="products.html">Products</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></div>
 
 <!-- ===== HERO ===== -->
-<section class="hero-new">
-  <div class="hero-bg-img"><img src="img/hero-bg.jpg" alt="Smart Wash Products" /></div>
-  <div class="hero-canvas-bg"><canvas id="heroCanvas"></canvas></div>
+<section class="hero-section">
+  <div class="hero-particles" id="heroParticles"></div>
   <div class="hero-grad-overlay"></div>
-  <div class="hero-aurora"></div>
-  <div class="hero-noise"></div>
-  <div class="hero-glow hg1"></div>
-  <div class="hero-glow hg2"></div>
-  <div class="hero-glow hg3"></div>
-  <div class="hero-glow hg4"></div>
+  <div class="hero-glow" style="width:600px;height:600px;background:rgba(239,28,36,0.12);top:-10%;right:-5%;"></div>
+  <div class="hero-glow" style="width:500px;height:500px;background:rgba(139,92,246,0.15);bottom:5%;left:-5%;"></div>
+  <div class="hero-glow" style="width:400px;height:400px;background:rgba(255,255,255,0.08);top:40%;left:40%;"></div>
 
   <div class="hero-content">
-    <div class="hn-left">
-      <div class="hn-badge"><div class="hn-badge-dot"></div> Zimbabwe's #1 Cleaning Brand</div>
-      <h1 class="hn-title">
-        <span class="line">Clean <span class="hl">Homes</span>,</span>
-        <span class="line">Fresh <span class="hl">Living</span>.</span>
+    <div class="hero-left">
+      <div class="hero-badge"><div class="hero-badge-dot"></div> Zimbabwe's #1 Cleaning Brand</div>
+      <h1 class="hero-h1">
+        <span class="line">Clean <span class="accent">Homes</span>,</span>
+        <span class="line">Fresh <span class="accent">Living</span>.</span>
       </h1>
-      <p class="hn-sub">Powerful foam. Brilliant results. Just one scoop creates rich foam that gets into every fibre — removing dirt and leaving clothes fresh. <strong style="color:var(--text-dark);">Inonyatsopupuma! Iyabhubhudla!</strong></p>
-      <div class="hn-btns">
+      <p class="hero-sub">Powerful foam. Brilliant results. Just one scoop creates rich foam that gets into every fibre — removing dirt and leaving clothes fresh. <strong style="color:#fff;">Inonyatsopupuma! Iyabhubhudla!</strong></p>
+      <div class="hero-btns">
         <a href="products.html" class="btn btn-primary magnetic">Explore Products →</a>
         <a href="#howto" class="btn btn-outline magnetic">How To Use</a>
       </div>
-      <div class="hn-stats-row">
-        <div class="hn-stat"><div class="hn-stat-num"><span class="count-up" data-target="10" data-suffix="+">0</span></div><div class="hn-stat-label">Years Experience</div></div>
-        <div class="hn-stat"><div class="hn-stat-num"><span class="count-up" data-target="500" data-suffix="+">0</span></div><div class="hn-stat-label">Retail Outlets</div></div>
-        <div class="hn-stat"><div class="hn-stat-num"><span class="red">∞</span></div><div class="hn-stat-label">Happy Homes</div></div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num"><span class="count-up" data-target="10" data-suffix="+">0</span></div><div class="hero-stat-label">Years Experience</div></div>
+        <div class="hero-stat"><div class="hero-stat-num"><span class="count-up" data-target="500" data-suffix="+">0</span></div><div class="hero-stat-label">Retail Outlets</div></div>
+        <div class="hero-stat"><div class="hero-stat-num"><span class="red">∞</span></div><div class="hero-stat-label">Happy Homes</div></div>
       </div>
     </div>
-    <div class="hn-right">
-      <div class="hn-product-float">
-        <div class="hn-pf-card">
-          <div class="hn-pf-inner">
-            <div class="hn-pf-bubble" style="width:55px;height:55px;top:10%;left:8%;animation-delay:0.5s;"></div>
-            <div class="hn-pf-bubble" style="width:30px;height:30px;bottom:15%;right:10%;animation-delay:1.2s;"></div>
-            <div class="hn-pf-bubble" style="width:20px;height:20px;top:50%;right:25%;animation-delay:2s;"></div>
-            <div class="hn-pf-icon">🧼</div>
-            <div class="hn-pf-name">Smart Wash</div>
-            <div class="hn-pf-tag">Original</div>
+    <div class="hero-right">
+      <div class="hero-product-card">
+        <div class="hero-pf-card">
+          <div class="hero-pf-inner">
+            <div class="bubble" style="width:50px;height:50px;top:8%;left:6%;animation-delay:0.5s;"></div>
+            <div class="bubble" style="width:28px;height:28px;bottom:12%;right:8%;animation-delay:1.2s;"></div>
+            <div class="bubble" style="width:18px;height:18px;top:45%;right:22%;animation-delay:2s;"></div>
+            <div class="hero-pf-icon">🧼</div>
+            <div class="hero-pf-name">Smart Wash</div>
+            <div class="hero-pf-tag">Original — Rich Foam</div>
           </div>
         </div>
-        <div class="hn-pf-card">
-          <div class="hn-pf-inner">
-            <div class="hn-pf-bubble" style="width:40px;height:40px;top:15%;right:10%;animation-delay:0.8s;"></div>
-            <div class="hn-pf-icon">✨</div>
-            <div class="hn-pf-name">Smart Wash</div>
-            <div class="hn-pf-tag">Lavender Fresh</div>
+        <div class="hero-pf-card">
+          <div class="hero-pf-inner">
+            <div class="bubble" style="width:36px;height:36px;top:12%;right:8%;animation-delay:0.8s;"></div>
+            <div class="hero-pf-icon">🌸</div>
+            <div class="hero-pf-name">Smart Wash</div>
+            <div class="hero-pf-tag">Lavender Fresh</div>
           </div>
         </div>
-        <div class="hn-pf-card">
-          <div class="hn-pf-inner">
-            <div class="hn-pf-icon">💪</div>
-            <div class="hn-pf-name">Smart Wash</div>
-            <div class="hn-pf-tag">Ultra Power</div>
+        <div class="hero-pf-card">
+          <div class="hero-pf-inner">
+            <div class="hero-pf-icon">💪</div>
+            <div class="hero-pf-name">Smart Wash</div>
+            <div class="hero-pf-tag">Ultra Power</div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="hn-scroll"><span>Scroll</span><div class="hn-scroll-line"></div></div>
+  <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
 </section>
 
 <!-- TRUST BAR -->
@@ -270,16 +157,15 @@
 </div>
 
 <!-- PROMO / ABOUT -->
-<section class="promo-section">
+<section style="background:linear-gradient(180deg,var(--foam),var(--lavender-foam));padding:100px 7%;">
   <div class="promo-grid">
     <div class="promo-visual reveal-left">
       <div class="promo-bubbles">
-        <div class="promo-bubble" style="width:90px;height:90px;top:8%;left:5%;animation-delay:0s;"></div>
+        <div class="promo-bubble" style="width:90px;height:90px;top:8%;left:5%;"></div>
         <div class="promo-bubble" style="width:55px;height:55px;top:18%;right:12%;animation-delay:1s;"></div>
         <div class="promo-bubble" style="width:40px;height:40px;bottom:22%;left:18%;animation-delay:2s;"></div>
         <div class="promo-bubble" style="width:65px;height:65px;bottom:12%;right:8%;animation-delay:1.5s;"></div>
         <div class="promo-bubble" style="width:28px;height:28px;top:55%;left:42%;animation-delay:0.8s;"></div>
-        <div class="promo-bubble" style="width:35px;height:35px;top:35%;left:65%;animation-delay:2.5s;"></div>
       </div>
       <div class="promo-visual-inner">
         <div class="promo-big-icon">🧼</div>
@@ -297,56 +183,56 @@
         <div class="about-stat reveal stagger-2"><div class="about-stat-num"><span class="count-up" data-target="6">0</span></div><div class="about-stat-label">Product Lines</div></div>
         <div class="about-stat reveal stagger-3"><div class="about-stat-num"><span class="count-up" data-target="10" data-suffix="th">0</span></div><div class="about-stat-label">Provinces</div></div>
       </div>
-      <a href="about.html" class="btn btn-blue magnetic" style="margin-top:28px;">Learn More →</a>
+      <a href="about.html" class="btn btn-lavender magnetic" style="margin-top:28px;">Learn More →</a>
     </div>
   </div>
 </section>
-
-<div class="wave-divider"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,60 C300,0 600,80 1200,20 L1200,80 L0,80 Z" fill="var(--navy)"/></svg></div>
 
 <!-- PRODUCTS -->
-<section id="products" style="background:var(--navy);position:relative;padding-top:80px;">
-  <div style="position:absolute;inset:0;opacity:0.02;background:repeating-linear-gradient(45deg,var(--gray-300)0,var(--gray-300)1px,transparent0,transparent30px);pointer-events:none;"></div>
-  <div style="text-align:center;position:relative;z-index:1;">
-    <div class="section-tag reveal" style="color:var(--gray-400);">Our Products</div>
-    <h2 class="section-title reveal stagger-1" style="color:var(--text-dark);">Professional <span style="color:var(--red);">Cleaning</span> Solutions</h2>
-    <p class="reveal stagger-2" style="font-size:1rem;color:var(--gray-500);max-width:540px;margin:0 auto 40px;">From flagship washing powder to industrial-strength cleaners — Smart Wash has every home and business covered.</p>
+<section style="background:linear-gradient(180deg,var(--lavender-foam),var(--foam));padding:80px 7%;">
+  <div style="text-align:center;">
+    <div class="section-tag reveal">Our Products</div>
+    <h2 class="section-title reveal stagger-1">Professional <span style="color:var(--red);">Cleaning</span> Solutions</h2>
+    <p class="reveal stagger-2 section-sub" style="margin:0 auto 40px;">From flagship washing powder to industrial-strength cleaners — Smart Wash has every home and business covered.</p>
   </div>
-  <div class="products-grid" style="position:relative;z-index:1;">
-    <div class="product-card reveal stagger-1" data-cat="powder" style="background:#fff;border-color:var(--gray-200);">
-      <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);"><div class="bubble-deco" style="width:40px;height:40px;top:20%;left:15%;"></div><div class="bubble-deco" style="width:25px;height:25px;bottom:30%;right:20%;animation-delay:1s;"></div><div class="product-emoji">🧼</div></div></div>
-      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(47,63,174,0.12);color:var(--blue);">Best Seller</span><h3 class="product-name" style="color:var(--text-dark);">Smart Wash Original</h3><p class="product-desc" style="color:var(--gray-500);">Our flagship washing powder with rich foam formula. Penetrates deep into fibres to lift stubborn stains.</p><div class="product-tags"><span class="tag tag-red">Stain Removal</span><span class="tag tag-blue">Rich Foam</span><span class="tag tag-yellow">Fresh Scent</span></div><button class="product-cta" data-modal="modal-original" style="background:var(--red);">View Details →</button></div>
+  <div class="products-grid">
+    <div class="product-card reveal stagger-1">
+      <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);"><div class="bubble" style="width:36px;height:36px;top:18%;left:12%;"></div><div class="bubble" style="width:22px;height:22px;bottom:25%;right:18%;animation-delay:1s;"></div><div class="product-emoji">🧼</div></div></div>
+      <div class="product-body"><span class="product-cat">Best Seller</span><h3 class="product-name">Smart Wash Original</h3><p class="product-desc">Our flagship washing powder with rich foam formula. Penetrates deep into fibres to lift stubborn stains.</p><div class="product-tags"><span class="tag tag-red">Stain Removal</span><span class="tag tag-blue">Rich Foam</span><span class="tag tag-yellow">Fresh Scent</span></div><button class="product-cta" data-modal="modal-original" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-2" data-cat="powder" style="background:#fff;border-color:var(--gray-200);">
-      <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);"><div class="bubble-deco" style="width:35px;height:35px;top:25%;right:20%;"></div><div class="product-emoji">🌸</div></div></div>
-      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(147,51,234,0.12);color:#7c3aed;">Premium</span><h3 class="product-name" style="color:var(--text-dark);">Smart Wash Lavender Fresh</h3><p class="product-desc" style="color:var(--gray-500);">Soothing lavender fragrance with powerful cleaning. Clothes smelling divine all day.</p><div class="product-tags"><span class="tag tag-red">Deep Clean</span><span class="tag tag-blue">Lavender</span></div><button class="product-cta" data-modal="modal-lavender" style="background:var(--red);">View Details →</button></div>
+    <div class="product-card reveal stagger-2">
+      <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);"><div class="bubble" style="width:30px;height:30px;top:22%;right:16%;"></div><div class="product-emoji">🌸</div></div></div>
+      <div class="product-body"><span class="product-cat">Premium</span><h3 class="product-name">Smart Wash Lavender Fresh</h3><p class="product-desc">Soothing lavender fragrance with powerful cleaning. Clothes smelling divine all day.</p><div class="product-tags"><span class="tag tag-red">Deep Clean</span><span class="tag tag-lavender">Lavender</span></div><button class="product-cta" data-modal="modal-lavender" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-3" data-cat="powder" style="background:#fff;border-color:var(--gray-200);">
-      <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);"><div class="bubble-deco" style="width:30px;height:30px;bottom:25%;left:15%;animation-delay:0.5s;"></div><div class="product-emoji">💪</div></div></div>
-      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(239,28,36,0.12);color:var(--red);">Industrial</span><h3 class="product-name" style="color:var(--text-dark);">Smart Wash Ultra Power</h3><p class="product-desc" style="color:var(--gray-500);">Maximum strength for the toughest stains. Ideal for hotels, hospitals, industrial washing.</p><div class="product-tags"><span class="tag tag-red">Extra Strong</span><span class="tag tag-blue">Bulk</span></div><button class="product-cta" data-modal="modal-ultra" style="background:var(--red);">View Details →</button></div>
+    <div class="product-card reveal stagger-3">
+      <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);"><div class="bubble" style="width:26px;height:26px;bottom:20%;left:12%;animation-delay:0.5s;"></div><div class="product-emoji">💪</div></div></div>
+      <div class="product-body"><span class="product-cat">Industrial</span><h3 class="product-name">Smart Wash Ultra Power</h3><p class="product-desc">Maximum strength for the toughest stains. Ideal for hotels, hospitals, industrial washing.</p><div class="product-tags"><span class="tag tag-red">Extra Strong</span><span class="tag tag-blue">Bulk</span></div><button class="product-cta" data-modal="modal-ultra" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-4" data-cat="liquid" style="background:#fff;border-color:var(--gray-200);">
+    <div class="product-card reveal stagger-4">
       <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);"><div class="product-emoji">🧴</div></div></div>
-      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(5,150,105,0.12);color:#059669;">Liquid</span><h3 class="product-name" style="color:var(--text-dark);">Dishwashing Liquid</h3><p class="product-desc" style="color:var(--gray-500);">Cuts through grease effortlessly. Concentrated formula — a little goes a long way.</p><div class="product-tags"><span class="tag tag-red">Degreaser</span><span class="tag tag-blue">Concentrated</span></div><button class="product-cta" data-modal="modal-dish" style="background:var(--red);">View Details →</button></div>
+      <div class="product-body"><span class="product-cat">Liquid</span><h3 class="product-name">Dishwashing Liquid</h3><p class="product-desc">Cuts through grease effortlessly. Concentrated formula — a little goes a long way.</p><div class="product-tags"><span class="tag tag-red">Degreaser</span><span class="tag tag-blue">Concentrated</span></div><button class="product-cta" data-modal="modal-dish" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-5" data-cat="liquid" style="background:#fff;border-color:var(--gray-200);">
+    <div class="product-card reveal stagger-5">
       <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);"><div class="product-emoji">🌲</div></div></div>
-      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(245,158,11,0.12);color:#f59e0b;">Gel</span><h3 class="product-name" style="color:var(--text-dark);">Pine Gel</h3><p class="product-desc" style="color:var(--gray-500);">Multi-purpose disinfectant with natural pine freshness. Floors, surfaces, bathrooms.</p><div class="product-tags"><span class="tag tag-red">Disinfectant</span><span class="tag tag-blue">Multi-Purpose</span></div><button class="product-cta" data-modal="modal-pine" style="background:var(--red);">View Details →</button></div>
+      <div class="product-body"><span class="product-cat">Gel</span><h3 class="product-name">Pine Gel</h3><p class="product-desc">Multi-purpose disinfectant with natural pine freshness. Floors, surfaces, bathrooms.</p><div class="product-tags"><span class="tag tag-red">Disinfectant</span><span class="tag tag-blue">Multi-Purpose</span></div><button class="product-cta" data-modal="modal-pine" style="background:var(--red);">View Details →</button></div>
     </div>
-    <div class="product-card reveal stagger-6" data-cat="industrial" style="background:#fff;border-color:var(--gray-200);">
+    <div class="product-card reveal stagger-6">
       <div class="product-img"><div class="product-img-inner" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);"><div class="product-emoji">✨</div></div></div>
-      <div class="product-body" style="background:var(--gray-50);"><span class="product-cat" style="background:rgba(147,51,234,0.12);color:#7c3aed;">Fabric</span><h3 class="product-name" style="color:var(--text-dark);">Fabric Softener</h3><p class="product-desc" style="color:var(--gray-500);">Luxurious softness and long-lasting fragrance. Silky smooth, gentle on skin.</p><div class="product-tags"><span class="tag tag-red">Softening</span><span class="tag tag-blue">Fragrance</span></div><button class="product-cta" data-modal="modal-softener" style="background:var(--red);">View Details →</button></div>
+      <div class="product-body"><span class="product-cat">Fabric</span><h3 class="product-name">Fabric Softener</h3><p class="product-desc">Luxurious softness and long-lasting fragrance. Silky smooth, gentle on skin.</p><div class="product-tags"><span class="tag tag-red">Softening</span><span class="tag tag-lavender">Fragrance</span></div><button class="product-cta" data-modal="modal-softener" style="background:var(--red);">View Details →</button></div>
     </div>
   </div>
-  <div style="text-align:center;margin-top:40px;position:relative;z-index:1;" class="reveal"><a href="products.html" class="btn btn-primary magnetic">View All Products →</a></div>
+  <div style="text-align:center;margin-top:40px;" class="reveal"><a href="products.html" class="btn btn-primary magnetic">View All Products →</a></div>
 </section>
 
-<div class="wave-divider"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,20 C400,80 800,0 1200,60 L1200,80 L0,80 Z" fill="#fff"/></svg></div>
-
 <!-- HOW TO USE -->
-<section id="howto">
+<section id="howto" style="background:linear-gradient(180deg,var(--foam),var(--lavender-foam));position:relative;overflow:hidden;">
+  <div class="foam-overlay"></div>
   <div style="position:relative;z-index:1;padding:var(--section-pad);">
-    <div style="text-align:center;"><div class="section-tag reveal" style="color:var(--gray-400);">How To Use</div><h2 class="section-title reveal stagger-1" style="color:var(--text-dark);">Simple Steps. <span style="color:var(--red);">Brilliant Results.</span></h2><p class="reveal stagger-2" style="color:var(--gray-500);max-width:540px;margin:0 auto;font-size:1rem;line-height:1.8;">Just one scoop of Smart Wash is all you need. Follow these 4 easy steps.</p></div>
+    <div style="text-align:center;">
+      <div class="section-tag reveal">How To Use</div>
+      <h2 class="section-title reveal stagger-1">Simple Steps. <span style="color:var(--red);">Brilliant Results.</span></h2>
+      <p class="reveal stagger-2 section-sub" style="margin:0 auto;">Just one scoop of Smart Wash is all you need. Follow these 4 easy steps.</p>
+    </div>
     <div class="steps-grid">
       <div class="step-card reveal stagger-1"><div class="step-num">1</div><h4 class="step-title">Measure</h4><p class="step-text">Measure the right amount of Smart Wash powder based on load size. One scoop does the job.</p></div>
       <div class="step-card reveal stagger-2"><div class="step-num">2</div><h4 class="step-title">Agitate</h4><p class="step-text">Add powder to water and agitate to fully dissolve. Watch the rich foam build!</p></div>
@@ -358,11 +244,12 @@
 
 <!-- INSPIRATION -->
 <section id="inspiration">
-  <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--gray-50)0%,var(--gray-100)100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--lavender-foam),var(--foam),var(--lavender-foam));"></div>
+  <div class="foam-overlay"></div>
   <div class="quote-slide-container">
-    <div class="quote-slide active" style="background:linear-gradient(135deg,#eef0f8,#dde0f0,#f0e8f8);"><div style="position:absolute;inset:0;background:radial-gradient(circle at 15% 25%,rgba(239,28,36,0.06),transparent60%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">There is no limit to what we, as <em>women</em>, can accomplish.</div><div class="qs-author">— Michelle Obama</div><div class="qs-brand">SMART WASH · EMPOWERING WOMEN</div></div></div>
-    <div class="quote-slide" style="background:linear-gradient(135deg,#eef0f8,#e0d8f0,#f0e8f8);"><div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(245,197,24,0.08),transparent50%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">Don't blend in. <em>Stand out</em> and leave your mark on the world.</div><div class="qs-author">— Viola Davis</div><div class="qs-brand">SMART WASH · STAND OUT</div></div></div>
-    <div class="quote-slide" style="background:linear-gradient(135deg,#e8eaf6,#dde0f0,#eef0f8);"><div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(239,28,36,0.06),transparent50%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">Cleanliness is next to <em>godliness</em> — and Smart Wash makes it effortless.</div><div class="qs-author">— Smart Wash Philosophy</div><div class="qs-brand">SMART WASH · CLEAN LIVING</div></div></div>
+    <div class="quote-slide active"><div style="position:absolute;inset:0;background:radial-gradient(circle at 15% 25%,rgba(239,28,36,0.06),transparent 60%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">There is no limit to what we, as <em>women</em>, can accomplish.</div><div class="qs-author">— Michelle Obama</div><div class="qs-brand">SMART WASH · EMPOWERING WOMEN</div></div></div>
+    <div class="quote-slide"><div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(139,92,246,0.08),transparent 50%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">Don't blend in. <em>Stand out</em> and leave your mark on the world.</div><div class="qs-author">— Viola Davis</div><div class="qs-brand">SMART WASH · STAND OUT</div></div></div>
+    <div class="quote-slide"><div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(239,28,36,0.06),transparent 50%);"></div><div class="quote-slide-inner"><span class="qs-mark">"</span><div class="qs-text">Cleanliness is next to <em>godliness</em> — and Smart Wash makes it effortless.</div><div class="qs-author">— Smart Wash Philosophy</div><div class="qs-brand">SMART WASH · CLEAN LIVING</div></div></div>
   </div>
   <button class="q-arrow q-arrow-left" aria-label="Previous quote">←</button>
   <button class="q-arrow q-arrow-right" aria-label="Next quote">→</button>
@@ -370,8 +257,11 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div style="text-align:center;"><div class="section-tag reveal">Testimonials</div><h2 class="section-title reveal stagger-1">Trusted by <span class="text-gradient">Thousands</span></h2></div>
+<section style="background:linear-gradient(180deg,var(--lavender-foam),var(--foam));overflow:hidden;">
+  <div style="text-align:center;">
+    <div class="section-tag reveal">Testimonials</div>
+    <h2 class="section-title reveal stagger-1">Trusted by <span class="text-gradient">Thousands</span></h2>
+  </div>
   <div class="testi-scroll-wrap" style="margin-top:50px;"><div class="testi-track">
     <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Smart Wash is the only washing powder I trust for my family. The foam is incredible and the fresh smell lasts for days!"</p><div class="testi-author"><div class="testi-avatar">MN</div><div><div class="testi-name">Mai Nomvula</div><div class="testi-loc">Harare, Zimbabwe</div></div></div></div>
     <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"We use Smart Wash at our hotel for all our linen. The industrial strength option handles heavy loads with ease."</p><div class="testi-author"><div class="testi-avatar">JT</div><div><div class="testi-name">James T.</div><div class="testi-loc">Bulawayo, Zimbabwe</div></div></div></div>
@@ -385,53 +275,56 @@
 
 <!-- CTA -->
 <section class="cta-section">
-  <div class="hero-glow" style="width:500px;height:500px;background:rgba(239,28,36,0.06);top:-25%;left:-10%;"></div>
-  <div class="hero-glow" style="width:400px;height:400px;background:rgba(47,63,174,0.06);bottom:-20%;right:-5%;animation-delay:2s;"></div>
+  <div class="hero-glow" style="width:500px;height:500px;background:rgba(239,28,36,0.08);top:-25%;left:-10%;"></div>
+  <div class="hero-glow" style="width:400px;height:400px;background:rgba(139,92,246,0.1);bottom:-20%;right:-5%;animation-delay:2s;"></div>
   <div style="position:relative;z-index:1;" class="reveal">
-    <div class="section-tag" style="color:var(--gray-400);">Get Started</div>
-    <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:800;color:var(--text-dark);margin-bottom:16px;">Ready for <span style="color:var(--red);">Brilliant</span> Clean?</h2>
-    <p style="color:var(--gray-500);max-width:540px;margin:0 auto 36px;font-size:1.05rem;line-height:1.8;">Whether you need a single pack or a bulk order, we've got you covered. Contact us for pricing and delivery.</p>
+    <div class="section-tag" style="color:rgba(255,255,255,0.5);">Get Started</div>
+    <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:800;color:#fff;margin-bottom:16px;">Ready for <span style="color:var(--red);">Brilliant</span> Clean?</h2>
+    <p style="color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto 36px;font-size:1.05rem;line-height:1.8;">Whether you need a single pack or a bulk order, we've got you covered. Contact us for pricing and delivery.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="contact.html" class="btn btn-primary magnetic">Contact Us →</a>
-      <a href="https://wa.me/263770000000" class="btn btn-outline magnetic" target="_blank">💬 WhatsApp Us</a>
+      <a href="https://wa.me/263770000000" class="btn btn-outline magnetic" target="_blank" style="border-color:rgba(255,255,255,0.4);color:#fff;">💬 WhatsApp Us</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer style="background:#0d1340;">
+<footer>
   <div class="footer-grid">
     <div class="footer-brand"><div class="logo">SMART<span>WASH</span></div><p>Zimbabwe's trusted cleaning brand. Professional-grade washing powder and cleaning products for homes and businesses.</p><div style="margin-top:24px;"><a href="https://wa.me/263770000000" class="btn btn-primary magnetic" style="padding:12px 28px;font-size:0.72rem;">💬 WhatsApp Us</a></div></div>
     <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div><h4>Products</h4><ul><li><a href="products.html">Smart Wash Original</a></li><li><a href="products.html">Lavender Fresh</a></li><li><a href="products.html">Ultra Power</a></li><li><a href="products.html">Dishwashing Liquid</a></li><li><a href="products.html">Pine Gel</a></li></ul></div>
     <div><h4>Newsletter</h4><p style="color:rgba(255,255,255,0.5);font-size:0.85rem;">Get cleaning tips and special offers.</p><form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Subscribed!';setTimeout(()=>this.querySelector('button').textContent='Subscribe',3000);"><input type="email" placeholder="Your email" required><button type="submit">Subscribe</button></form></div>
   </div>
-  <div class="footer-bottom" style="border-color:rgba(255,255,255,0.08);"><p>&copy; 2026 Smart Wash by Makoti Detergents. All rights reserved.</p><div class="footer-social"><a href="#">f</a><a href="#">in</a><a href="#">𝕏</a><a href="https://wa.me/263770000000">💬</a></div></div>
+  <div class="footer-bottom"><p>&copy; 2026 Smart Wash by Makoti Detergents. All rights reserved.</p><div class="footer-social"><a href="#">f</a><a href="#">in</a><a href="#">𝕏</a><a href="https://wa.me/263770000000">💬</a></div></div>
 </footer>
 
 <!-- MODALS -->
-<div class="modal-overlay" id="modal-original"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Best Seller</div><h3 class="modal-title">Smart Wash Original</h3><p class="modal-desc">Our flagship washing powder with rich foam formula. Penetrates deep into fabric fibres to lift stubborn stains and leave clothes brilliantly clean with a long-lasting fresh scent.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Rich Foam Technology</span></div><div class="spec-row"><span>Scent</span><span>Fresh & Clean</span></div><div class="spec-row"><span>Available Sizes</span><span>500g, 1kg, 2kg, 5kg, 10kg</span></div><div class="spec-row"><span>Best For</span><span>Everyday laundry, all fabrics</span></div></div><div class="modal-btns"><button class="mbtn-buy" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn mbtn-wa" style="text-decoration:none;">WhatsApp</a></div></div></div>
-<div class="modal-overlay" id="modal-lavender"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Premium</div><h3 class="modal-title">Smart Wash Lavender Fresh</h3><p class="modal-desc">Same powerful cleaning with a soothing lavender fragrance. Clothes come out clean and smelling divine.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Rich Foam + Lavender</span></div><div class="spec-row"><span>Scent</span><span>Lavender Fields</span></div><div class="spec-row"><span>Available Sizes</span><span>500g, 1kg, 2kg, 5kg</span></div><div class="spec-row"><span>Best For</span><span>Gentle fabrics, everyday wear</span></div></div><div class="modal-btns"><button class="mbtn-buy" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn mbtn-wa" style="text-decoration:none;">WhatsApp</a></div></div></div>
-<div class="modal-overlay" id="modal-ultra"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Industrial</div><h3 class="modal-title">Smart Wash Ultra Power</h3><p class="modal-desc">Maximum strength formula for the toughest stains. Ideal for industrial and institutional washing.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Ultra Concentrated</span></div><div class="spec-row"><span>Scent</span><span>Power Fresh</span></div><div class="spec-row"><span>Available Sizes</span><span>5kg, 10kg, 25kg</span></div><div class="spec-row"><span>Best For</span><span>Industrial, institutional</span></div></div><div class="modal-btns"><button class="mbtn-buy" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn mbtn-wa" style="text-decoration:none;">WhatsApp</a></div></div></div>
-<div class="modal-overlay" id="modal-dish"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Liquid</div><h3 class="modal-title">Smart Wash Dishwashing Liquid</h3><p class="modal-desc">Cuts through grease effortlessly. Concentrated formula for sparkling clean dishes.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Grease-Cutting Concentrate</span></div><div class="spec-row"><span>Scent</span><span>Lemon Fresh</span></div><div class="spec-row"><span>Available Sizes</span><span>500ml, 1L, 5L</span></div><div class="spec-row"><span>Best For</span><span>Dishes, kitchen surfaces</span></div></div><div class="modal-btns"><button class="mbtn-buy" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn mbtn-wa" style="text-decoration:none;">WhatsApp</a></div></div></div>
-<div class="modal-overlay" id="modal-pine"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Gel</div><h3 class="modal-title">Smart Wash Pine Gel</h3><p class="modal-desc">Multi-purpose disinfectant with natural pine freshness. For floors, surfaces, and bathrooms.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Pine Disinfectant Gel</span></div><div class="spec-row"><span>Scent</span><span>Pine Fresh</span></div><div class="spec-row"><span>Available Sizes</span><span>750ml, 2L, 5L</span></div><div class="spec-row"><span>Best For</span><span>Floors, surfaces, bathrooms</span></div></div><div class="modal-btns"><button class="mbtn-buy" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn mbtn-wa" style="text-decoration:none;">WhatsApp</a></div></div></div>
-<div class="modal-overlay" id="modal-softener"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Fabric</div><h3 class="modal-title">Smart Wash Fabric Softener</h3><p class="modal-desc">Luxurious softness and long-lasting fragrance. Leaves clothes silky smooth and gentle on skin.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Silky Soft</span></div><div class="spec-row"><span>Scent</span><span>Spring Fresh</span></div><div class="spec-row"><span>Available Sizes</span><span>500ml, 1L, 2L</span></div><div class="spec-row"><span>Best For</span><span>All fabrics, sensitive skin</span></div></div><div class="modal-btns"><button class="mbtn-buy" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn mbtn-wa" style="text-decoration:none;">WhatsApp</a></div></div></div>
+<div class="modal-overlay" id="modal-original"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Best Seller</div><h3 class="modal-title">Smart Wash Original</h3><p class="modal-desc">Our flagship washing powder with rich foam formula. Penetrates deep into fabric fibres to lift stubborn stains and leave clothes brilliantly clean with a long-lasting fresh scent.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Rich Foam Technology</span></div><div class="spec-row"><span>Scent</span><span>Fresh & Clean</span></div><div class="spec-row"><span>Available Sizes</span><span>500g, 1kg, 2kg, 5kg, 10kg</span></div><div class="spec-row"><span>Best For</span><span>Everyday laundry, all fabrics</span></div></div><div class="modal-btns" style="display:flex;gap:12px;"><button class="btn btn-primary" style="flex:1;text-align:center;padding:14px;font-size:0.76rem;" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn btn-outline" style="border-color:var(--glass-border);color:var(--text-dark);flex-shrink:0;padding:14px 20px;font-size:0.76rem;text-decoration:none;">WhatsApp</a></div></div></div>
+<div class="modal-overlay" id="modal-lavender"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Premium</div><h3 class="modal-title">Smart Wash Lavender Fresh</h3><p class="modal-desc">Same powerful cleaning with a soothing lavender fragrance. Clothes come out clean and smelling divine.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Rich Foam + Lavender</span></div><div class="spec-row"><span>Scent</span><span>Lavender Fields</span></div><div class="spec-row"><span>Available Sizes</span><span>500g, 1kg, 2kg, 5kg</span></div><div class="spec-row"><span>Best For</span><span>Gentle fabrics, everyday wear</span></div></div><div class="modal-btns" style="display:flex;gap:12px;"><button class="btn btn-primary" style="flex:1;text-align:center;padding:14px;font-size:0.76rem;" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn btn-outline" style="border-color:var(--glass-border);color:var(--text-dark);flex-shrink:0;padding:14px 20px;font-size:0.76rem;text-decoration:none;">WhatsApp</a></div></div></div>
+<div class="modal-overlay" id="modal-ultra"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Industrial</div><h3 class="modal-title">Smart Wash Ultra Power</h3><p class="modal-desc">Maximum strength formula for the toughest stains. Ideal for industrial and institutional washing.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Ultra Concentrated</span></div><div class="spec-row"><span>Scent</span><span>Power Fresh</span></div><div class="spec-row"><span>Available Sizes</span><span>5kg, 10kg, 25kg</span></div><div class="spec-row"><span>Best For</span><span>Industrial, institutional</span></div></div><div class="modal-btns" style="display:flex;gap:12px;"><button class="btn btn-primary" style="flex:1;text-align:center;padding:14px;font-size:0.76rem;" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn btn-outline" style="border-color:var(--glass-border);color:var(--text-dark);flex-shrink:0;padding:14px 20px;font-size:0.76rem;text-decoration:none;">WhatsApp</a></div></div></div>
+<div class="modal-overlay" id="modal-dish"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Liquid</div><h3 class="modal-title">Smart Wash Dishwashing Liquid</h3><p class="modal-desc">Cuts through grease effortlessly. Concentrated formula for sparkling clean dishes.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Grease-Cutting Concentrate</span></div><div class="spec-row"><span>Scent</span><span>Lemon Fresh</span></div><div class="spec-row"><span>Available Sizes</span><span>500ml, 1L, 5L</span></div><div class="spec-row"><span>Best For</span><span>Dishes, kitchen surfaces</span></div></div><div class="modal-btns" style="display:flex;gap:12px;"><button class="btn btn-primary" style="flex:1;text-align:center;padding:14px;font-size:0.76rem;" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn btn-outline" style="border-color:var(--glass-border);color:var(--text-dark);flex-shrink:0;padding:14px 20px;font-size:0.76rem;text-decoration:none;">WhatsApp</a></div></div></div>
+<div class="modal-overlay" id="modal-pine"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Gel</div><h3 class="modal-title">Smart Wash Pine Gel</h3><p class="modal-desc">Multi-purpose disinfectant with natural pine freshness. For floors, surfaces, and bathrooms.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Pine Disinfectant Gel</span></div><div class="spec-row"><span>Scent</span><span>Pine Fresh</span></div><div class="spec-row"><span>Available Sizes</span><span>750ml, 2L, 5L</span></div><div class="spec-row"><span>Best For</span><span>Floors, surfaces, bathrooms</span></div></div><div class="modal-btns" style="display:flex;gap:12px;"><button class="btn btn-primary" style="flex:1;text-align:center;padding:14px;font-size:0.76rem;" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn btn-outline" style="border-color:var(--glass-border);color:var(--text-dark);flex-shrink:0;padding:14px 20px;font-size:0.76rem;text-decoration:none;">WhatsApp</a></div></div></div>
+<div class="modal-overlay" id="modal-softener"><div class="modal"><button class="modal-close">✕</button><div class="modal-tag">Fabric</div><h3 class="modal-title">Smart Wash Fabric Softener</h3><p class="modal-desc">Luxurious softness and long-lasting fragrance. Leaves clothes silky smooth and gentle on skin.</p><div class="modal-specs"><div class="spec-row"><span>Formula</span><span>Silky Soft</span></div><div class="spec-row"><span>Scent</span><span>Spring Fresh</span></div><div class="spec-row"><span>Available Sizes</span><span>500ml, 1L, 2L</span></div><div class="spec-row"><span>Best For</span><span>All fabrics, sensitive skin</span></div></div><div class="modal-btns" style="display:flex;gap:12px;"><button class="btn btn-primary" style="flex:1;text-align:center;padding:14px;font-size:0.76rem;" onclick="window.location.href='contact.html'">Order Now</button><a href="https://wa.me/263770000000" class="btn btn-outline" style="border-color:var(--glass-border);color:var(--text-dark);flex-shrink:0;padding:14px 20px;font-size:0.76rem;text-decoration:none;">WhatsApp</a></div></div></div>
 
 <script src="js/main.js"></script>
 <script>
 // Hero Canvas — Connected Particle Network
 (function(){
-  const canvas=document.getElementById('heroCanvas');if(!canvas)return;
+  const canvas=document.createElement('canvas');canvas.id='heroCanvas';
+  const hero=document.querySelector('.hero-section');if(!hero)return;
+  canvas.style.cssText='position:absolute;inset:0;z-index:1;opacity:0.2;pointer-events:none';
+  hero.insertBefore(canvas,hero.firstChild);
   const ctx=canvas.getContext('2d');let w,h,particles=[];
   function resize(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight;}
   resize();window.addEventListener('resize',resize);
-  for(let i=0;i<70;i++){particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*22+4,dx:(Math.random()-0.5)*0.4,dy:(Math.random()-0.5)*0.4,o:Math.random()*0.12+0.02});}
+  for(let i=0;i<60;i++){particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*18+3,dx:(Math.random()-0.5)*0.3,dy:(Math.random()-0.5)*0.3,o:Math.random()*0.1+0.02});}
   function draw(){
     ctx.clearRect(0,0,w,h);
     particles.forEach(p=>{
       ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(47,63,174,${p.o})`;ctx.fill();
-      ctx.strokeStyle=`rgba(47,63,174,${p.o*2})`;ctx.lineWidth=0.5;ctx.stroke();
+      ctx.fillStyle=`rgba(139,92,246,${p.o})`;ctx.fill();
+      ctx.strokeStyle=`rgba(139,92,246,${p.o*2})`;ctx.lineWidth=0.5;ctx.stroke();
       p.x+=p.dx;p.y+=p.dy;
       if(p.x<-p.r)p.x=w+p.r;if(p.x>w+p.r)p.x=-p.r;
       if(p.y<-p.r)p.y=h+p.r;if(p.y>h+p.r)p.y=-p.r;
@@ -439,27 +332,12 @@
     for(let i=0;i<particles.length;i++){
       for(let j=i+1;j<particles.length;j++){
         const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<130){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(47,63,174,${0.08*(1-dist/130)})`;ctx.lineWidth=0.5;ctx.stroke();}
+        if(dist<120){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(139,92,246,${0.06*(1-dist/120)})`;ctx.lineWidth=0.5;ctx.stroke();}
       }
     }
     requestAnimationFrame(draw);
   }
   draw();
-})();
-
-// ===== HERO BACKGROUND IMAGE (clean, refined) =====
-(function(){
-  var hero=document.querySelector('.hero-new');
-  if(!hero)return;
-  var img=hero.querySelector('.hero-bg-img img');
-  if(!img)return;
-  img.style.display='block';
-  img.style.opacity='0';
-  img.onload=function(){
-    img.style.transition='opacity 1.5s ease';
-    img.style.opacity='0.5';
-  };
-  if(img.complete){img.style.transition='opacity 1.5s ease';img.style.opacity='0.5';}
 })();
 
 // ===== GLOBAL RISING BUBBLES =====
@@ -468,32 +346,31 @@
   const colors=[
     {bg:'radial-gradient(circle at 30% 30%, rgba(47,63,174,0.15), rgba(47,63,174,0.02))',border:'rgba(47,63,174,0.2)'},
     {bg:'radial-gradient(circle at 30% 30%, rgba(239,28,36,0.15), rgba(239,28,36,0.02))',border:'rgba(239,28,36,0.2)'},
-    {bg:'radial-gradient(circle at 30% 30%, rgba(107,33,168,0.12), rgba(107,33,168,0.02))',border:'rgba(107,33,168,0.15)'},
+    {bg:'radial-gradient(circle at 30% 30%, rgba(139,92,246,0.12), rgba(139,92,246,0.02))',border:'rgba(139,92,246,0.15)'},
     {bg:'radial-gradient(circle at 30% 30%, rgba(245,197,24,0.12), rgba(245,197,24,0.02))',border:'rgba(245,197,24,0.15)'},
-    {bg:'radial-gradient(circle at 30% 30%, rgba(26,26,46,0.08), rgba(26,26,46,0.01))',border:'rgba(26,26,46,0.08)'},
   ];
   let bubbleCount=0;
   function createBubble(){
-    if(bubbleCount>40)return;
+    if(bubbleCount>35)return;
     const b=document.createElement('div');b.className='gb';
-    const size=Math.random()*45+10;
+    const size=Math.random()*40+8;
     const dur=Math.random()*14+7;
     const delay=Math.random()*4;
-    const dx=(Math.random()-0.5)*80;
-    const dx2=(Math.random()-0.5)*60;
-    const dx3=(Math.random()-0.5)*40;
-    const dx4=(Math.random()-0.5)*50;
-    const opacity=Math.random()*0.35+0.12;
-    const opacity3=Math.random()*0.2+0.05;
+    const dx=(Math.random()-0.5)*70;
+    const dx2=(Math.random()-0.5)*50;
+    const dx3=(Math.random()-0.5)*35;
+    const dx4=(Math.random()-0.5)*45;
+    const opacity=Math.random()*0.3+0.1;
+    const opacity3=Math.random()*0.15+0.04;
     const colorIdx=Math.floor(Math.random()*colors.length);
     const left=Math.random()*100;
-    b.style.cssText=`width:${size}px;height:${size}px;left:${left}%;bottom:-${size}px;--bub-o:${opacity};--bub-dx:${dx}px;--bub-dx2:${dx2}px;--bub-dx3:${dx3}px;--bub-dx4:${dx4}px;--bub-o3:${opacity3}px;background:${colors[colorIdx].bg};border:1px solid ${colors[colorIdx].border};animation-duration:${dur}s;animation-delay:${delay}s;filter:blur(${Math.random()>0.7?1:0}px);`;
+    b.style.cssText='width:'+size+'px;height:'+size+'px;left:'+left+'%;bottom:-'+size+'px;--bub-o:'+opacity+';--bub-dx:'+dx+'px;--bub-dx2:'+dx2+'px;--bub-dx3:'+dx3+'px;--bub-dx4:'+dx4+'px;--bub-o3:'+opacity3+'px;background:'+colors[colorIdx].bg+';border:1px solid '+colors[colorIdx].border+';animation-duration:'+dur+'s;animation-delay:'+delay+'s;';
     container.appendChild(b);bubbleCount++;
     const totalMs=(dur+delay)*1000;
-    setTimeout(()=>{if(b.parentNode)b.parentNode.removeChild(b);bubbleCount--;createBubble();},totalMs);
+    setTimeout(function(){if(b.parentNode)b.parentNode.removeChild(b);bubbleCount--;createBubble();},totalMs);
   }
-  for(let i=0;i<30;i++){setTimeout(()=>createBubble(),i*300);}
-  setInterval(()=>{if(bubbleCount<35)createBubble();},1500);
+  for(let i=0;i<25;i++){setTimeout(function(){createBubble();},i*350);}
+  setInterval(function(){if(bubbleCount<30)createBubble();},1800);
 })();
 </script>
 </body>

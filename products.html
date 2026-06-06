@@ -6,12 +6,12 @@
 <title>Smart Wash Products | Washing Powder, Dishwashing, Pine Gel & More</title>
 <meta name="description" content="Explore Smart Wash's full range of professional cleaning products — washing powder, dishwashing liquid, pine gel, thick bleach, and fabric softener.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
 .product-detail-grid {
   display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
-  padding:60px 0; border-bottom:1px solid var(--gray-200);
+  padding:60px 0; border-bottom:1px solid var(--glass-border);
 }
 .product-detail-grid:nth-child(even) { direction:rtl; }
 .product-detail-grid:nth-child(even) > * { direction:ltr; }
@@ -21,34 +21,24 @@
 }
 .product-visual-inner {
   width:100%; height:100%; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; position:relative;
-  padding:40px;
+  align-items:center; justify-content:center; position:relative; padding:40px;
 }
 .product-visual-inner .pv-icon { font-size:6rem; margin-bottom:20px; position:relative; z-index:1; }
 .product-visual-inner .pv-name {
   font-family:'Bebas Neue',sans-serif; font-size:2rem; color:#fff;
-  letter-spacing:6px; text-transform:uppercase; position:relative; z-index:1;
+  letter-spacing:6px; text-transform:uppercase;
 }
 .product-visual-inner .pv-sub {
   font-size:0.75rem; color:rgba(255,255,255,0.5); letter-spacing:3px;
-  text-transform:uppercase; margin-top:6px; position:relative; z-index:1;
+  text-transform:uppercase; margin-top:6px;
 }
-.pv-bubble {
-  position:absolute; border-radius:50%;
-  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), rgba(255,255,255,0.02));
-  border:1px solid rgba(255,255,255,0.2); animation:bubbleDeco 4s ease-in-out infinite;
-}
-@keyframes bubbleDeco { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-12px) scale(1.05)} }
-.product-features { display:flex; flex-direction:column; gap:16px; margin-top:24px; }
-.pf-item { display:flex; align-items:flex-start; gap:12px; }
-.pf-item .pf-icon {
-  width:32px; height:32px; border-radius:50%; background:rgba(47,63,174,0.07);
-  display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0;
-}
-.pf-item .pf-text { font-size:0.88rem; color:var(--gray-600); line-height:1.6; }
-.pf-item .pf-text strong { color:var(--text-dark); display:block; font-size:0.85rem; margin-bottom:2px; }
 @media(max-width:900px) {
   .product-detail-grid, .product-detail-grid:nth-child(even) { grid-template-columns:1fr; direction:ltr; }
+}
+@media(max-width:600px) {
+  .product-visual { height:260px; }
+  .product-visual-inner .pv-icon { font-size:4rem; }
+  .product-visual-inner .pv-name { font-size:1.5rem; letter-spacing:4px; }
 }
 </style>
 </head>
@@ -81,14 +71,13 @@
   </div>
 </header>
 
-<!-- PRODUCT 1: ORIGINAL -->
-<section style="background:#fff;">
+<section class="product-detail-wrap">
   <div class="product-detail-grid">
     <div class="product-visual reveal-left" style="background:linear-gradient(135deg, var(--blue), var(--blue-light));">
       <div class="product-visual-inner">
-        <div class="pv-bubble" style="width:80px;height:80px;top:10%;left:8%;animation-delay:0.5s;"></div>
-        <div class="pv-bubble" style="width:50px;height:50px;bottom:15%;right:12%;animation-delay:1s;"></div>
-        <div class="pv-bubble" style="width:35px;height:35px;top:30%;right:20%;animation-delay:1.5s;"></div>
+        <div class="bubble" style="width:80px;height:80px;top:10%;left:8%;animation-delay:0.5s;"></div>
+        <div class="bubble" style="width:50px;height:50px;bottom:15%;right:12%;animation-delay:1s;"></div>
+        <div class="bubble" style="width:35px;height:35px;top:30%;right:20%;animation-delay:1.5s;"></div>
         <div class="pv-icon">🧼</div>
         <div class="pv-name">Smart Wash</div>
         <div class="pv-sub">Original — Rich Foam Formula</div>
@@ -115,13 +104,12 @@
   </div>
 </section>
 
-<!-- PRODUCT 2: LAVENDER -->
-<section style="background:var(--gray-50);">
+<section style="background:linear-gradient(180deg,var(--lavender-foam),var(--foam));">
   <div class="product-detail-grid">
     <div class="product-visual reveal-left" style="background:linear-gradient(135deg, #6b21a8, #9333ea);">
       <div class="product-visual-inner">
-        <div class="pv-bubble" style="width:60px;height:60px;top:15%;right:10%;animation-delay:0.5s;"></div>
-        <div class="pv-bubble" style="width:40px;height:40px;bottom:20%;left:15%;animation-delay:1.2s;"></div>
+        <div class="bubble" style="width:60px;height:60px;top:15%;right:10%;animation-delay:0.5s;"></div>
+        <div class="bubble" style="width:40px;height:40px;bottom:20%;left:15%;animation-delay:1.2s;"></div>
         <div class="pv-icon">🌸</div>
         <div class="pv-name">Smart Wash</div>
         <div class="pv-sub">Lavender Fresh</div>
@@ -132,7 +120,7 @@
       <h2 style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--text-dark);margin:8px 0;">Smart Wash Lavender Fresh</h2>
       <p style="color:var(--gray-500);line-height:1.8;margin-bottom:20px;">The same powerful cleaning you love, now with a soothing lavender fragrance. Clothes come out brilliantly clean and smelling divine — all day long. Perfect for those who love a touch of luxury in every wash.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
-        <span class="tag tag-red">Deep Clean</span><span class="tag tag-blue">Lavender</span><span class="tag tag-yellow">Gentle on Skin</span>
+        <span class="tag tag-red">Deep Clean</span><span class="tag tag-lavender">Lavender</span><span class="tag tag-yellow">Gentle on Skin</span>
       </div>
       <div class="product-features">
         <div class="pf-item"><div class="pf-icon">✓</div><div class="pf-text"><strong>Soothing Lavender Scent</strong>Aromatic fragrance that lasts for days</div></div>
@@ -147,13 +135,12 @@
   </div>
 </section>
 
-<!-- PRODUCT 3: ULTRA POWER -->
-<section style="background:#fff;">
+<section class="product-detail-wrap">
   <div class="product-detail-grid">
     <div class="product-visual reveal-left" style="background:linear-gradient(135deg, #1e2a85, #0d1340);">
       <div class="product-visual-inner">
-        <div class="pv-bubble" style="width:70px;height:70px;top:8%;left:12%;animation-delay:0.3s;"></div>
-        <div class="pv-bubble" style="width:45px;height:45px;bottom:18%;right:8%;animation-delay:0.8s;"></div>
+        <div class="bubble" style="width:70px;height:70px;top:8%;left:12%;animation-delay:0.3s;"></div>
+        <div class="bubble" style="width:45px;height:45px;bottom:18%;right:8%;animation-delay:0.8s;"></div>
         <div class="pv-icon">💪</div>
         <div class="pv-name">Smart Wash</div>
         <div class="pv-sub">Ultra Power</div>
@@ -179,8 +166,7 @@
   </div>
 </section>
 
-<!-- OTHER PRODUCTS -->
-<section style="background:var(--gray-50);">
+<section style="background:linear-gradient(180deg,var(--lavender-foam),var(--foam));">
   <div style="text-align:center;" class="reveal">
     <div class="section-tag">More Products</div>
     <h2 class="section-title">Complete Cleaning <span class="text-gradient">Range</span></h2>
@@ -195,7 +181,7 @@
         <h3 class="product-name">Dishwashing Liquid</h3>
         <p class="product-desc">Cuts through grease effortlessly. Concentrated lemon-fresh formula — a little goes a long way.</p>
         <div class="product-tags"><span class="tag tag-red">Degreaser</span><span class="tag tag-blue">Concentrated</span></div>
-        <a href="contact.html" class="product-cta" style="display:block;text-align:center;text-decoration:none;">Get Pricing →</a>
+        <a href="contact.html" class="product-cta">Get Pricing →</a>
       </div>
     </div>
     <div class="product-card reveal stagger-2">
@@ -207,7 +193,7 @@
         <h3 class="product-name">Pine Gel</h3>
         <p class="product-desc">Multi-purpose disinfectant with natural pine freshness. For floors, surfaces, and bathrooms.</p>
         <div class="product-tags"><span class="tag tag-red">Disinfectant</span><span class="tag tag-blue">Multi-Purpose</span></div>
-        <a href="contact.html" class="product-cta" style="display:block;text-align:center;text-decoration:none;">Get Pricing →</a>
+        <a href="contact.html" class="product-cta">Get Pricing →</a>
       </div>
     </div>
     <div class="product-card reveal stagger-3">
@@ -218,8 +204,8 @@
         <span class="product-cat">Fabric Care</span>
         <h3 class="product-name">Fabric Softener</h3>
         <p class="product-desc">Luxurious softness and long-lasting fragrance. Leaves clothes feeling silky smooth.</p>
-        <div class="product-tags"><span class="tag tag-red">Softening</span><span class="tag tag-blue">Fragrance</span></div>
-        <a href="contact.html" class="product-cta" style="display:block;text-align:center;text-decoration:none;">Get Pricing →</a>
+        <div class="product-tags"><span class="tag tag-red">Softening</span><span class="tag tag-lavender">Fragrance</span></div>
+        <a href="contact.html" class="product-cta">Get Pricing →</a>
       </div>
     </div>
     <div class="product-card reveal stagger-4">
@@ -231,38 +217,21 @@
         <h3 class="product-name">Thick Bleach</h3>
         <p class="product-desc">Thick, clinging formula for toilets and bathrooms. Kills 99.9% of germs on contact.</p>
         <div class="product-tags"><span class="tag tag-red">Antibacterial</span><span class="tag tag-blue">Thick Cling</span></div>
-        <a href="contact.html" class="product-cta" style="display:block;text-align:center;text-decoration:none;">Get Pricing →</a>
+        <a href="contact.html" class="product-cta">Get Pricing →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW TO USE -->
-<section id="howto" style="background:var(--gray-50);">
-  <div style="position:relative;z-index:1;">
-    <div style="text-align:center;">
-      <div class="section-tag reveal">How To Use</div>
-      <h2 class="section-title reveal stagger-1" style="color:var(--text-dark);">Simple Steps. <span style="color:var(--red);">Brilliant Results.</span></h2>
-    </div>
-    <div class="steps-grid">
-      <div class="step-card reveal stagger-1"><div class="step-num">1</div><h4 class="step-title">Measure</h4><p class="step-text">Add one scoop of Smart Wash to your washing based on load size.</p></div>
-      <div class="step-card reveal stagger-2"><div class="step-num">2</div><h4 class="step-title">Agitate</h4><p class="step-text">Agitate the water so the powder fully dissolves and creates rich foam.</p></div>
-      <div class="step-card reveal stagger-3"><div class="step-num">3</div><h4 class="step-title">Soak</h4><p class="step-text">Soak clothes for 15–20 minutes for best results.</p></div>
-      <div class="step-card reveal stagger-4"><div class="step-num">4</div><h4 class="step-title">Enjoy</h4><p class="step-text">Rinse and enjoy brilliantly clean, fresh-smelling clothes!</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA -->
-<section style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));text-align:center;color:#fff;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(239,28,36,0.08), transparent 60%);"></div>
+<section class="cta-section">
   <div style="position:relative;z-index:1;" class="reveal">
     <div class="section-tag" style="color:rgba(255,255,255,0.7);">Ready to Order?</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;margin-bottom:16px;">Get Smart Wash <span style="color:var(--red);">Today</span></h2>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;margin-bottom:16px;color:#fff;">Get Smart Wash <span style="color:var(--red);">Today</span></h2>
     <p style="color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 32px;font-size:1rem;line-height:1.7;">Whether you need a single pack or a bulk order, we've got you covered. Contact us for pricing and delivery.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="contact.html" class="btn btn-primary magnetic">Contact Us →</a>
-      <a href="https://wa.me/263770000000" class="btn btn-outline magnetic" target="_blank">💬 WhatsApp Us</a>
+      <a href="https://wa.me/263770000000" class="btn btn-outline magnetic" target="_blank" style="border-color:rgba(255,255,255,0.4);color:#fff;">💬 WhatsApp Us</a>
     </div>
   </div>
 </section>
