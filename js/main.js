@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== NAVBAR =====
   const navbar = document.getElementById('navbar');
   if (navbar) {
-    let lastScroll = 0;
     window.addEventListener('scroll', () => {
       const current = window.scrollY;
       if (current > 80) {
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         navbar.classList.remove('scrolled');
       }
-      lastScroll = current;
     });
   }
 
@@ -76,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animateRing);
     }
     animateRing();
-    document.querySelectorAll('a, button, .btn, .product-card, .feature-card, .faq-question').forEach(el => {
+    document.querySelectorAll('a, button, .btn, .product-card, .feature-card, .benefit-card, .faq-question').forEach(el => {
       el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
       el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
     });
@@ -134,27 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ===== HERO GRADIENT ORBS =====
-  const hero = document.getElementById('hero');
-  if (hero) {
-    const orbs = [
-      { color: 'rgba(239,28,36,0.15)', size: 400, top: '10%', left: '60%' },
-      { color: 'rgba(47,63,174,0.2)', size: 500, top: '50%', left: '20%' },
-      { color: 'rgba(107,33,168,0.1)', size: 350, top: '70%', left: '80%' },
-    ];
-    orbs.forEach(orb => {
-      const el = document.createElement('div');
-      el.className = 'hero-gradient-orb';
-      el.style.background = `radial-gradient(circle, ${orb.color}, transparent 70%)`;
-      el.style.width = orb.size + 'px';
-      el.style.height = orb.size + 'px';
-      el.style.top = orb.top;
-      el.style.left = orb.left;
-      el.style.animationDelay = (Math.random() * 5) + 's';
-      hero.insertBefore(el, hero.firstChild);
-    });
-  }
-
   // ===== PRODUCT CARD HOVER =====
   document.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -166,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== FAQs =====
+  // ===== FAQS =====
   document.querySelectorAll('.faq-question').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.parentElement;
@@ -354,5 +331,17 @@ document.addEventListener('DOMContentLoaded', () => {
       ptOverlay.classList.remove('pt-enter');
     });
   }
+
+  // ===== PARALLAX ON SCROLL =====
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.parallax').forEach(el => {
+      const speed = el.dataset.speed || 0.15;
+      const rect = el.getBoundingClientRect();
+      const scrolled = window.innerHeight - rect.top;
+      if (scrolled > 0 && rect.top < window.innerHeight) {
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      }
+    });
+  });
 
 });
