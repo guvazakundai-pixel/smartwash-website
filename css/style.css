@@ -105,6 +105,10 @@ button { cursor: pointer; font-family: inherit; }
   transition:opacity 0.6s ease, visibility 0.6s ease;
 }
 #preloader.done { opacity:0; visibility:hidden; }
+.pre-logo-img {
+  height:120px; width:auto; border-radius:12px; object-fit:contain; margin-bottom:16px;
+  filter:drop-shadow(0 0 40px rgba(139,92,246,0.3));
+}
 .pre-logo {
   font-family:'Outfit','Bebas Neue',sans-serif; font-weight:800;
   font-size:clamp(3rem,8vw,7rem);
@@ -180,6 +184,10 @@ button { cursor: pointer; font-family: inherit; }
   box-shadow:0 4px 30px rgba(47,63,174,0.06); height:58px;
 }
 .nav-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-logo-img {
+  height:48px; width:auto; border-radius:6px; object-fit:contain; transition:transform 0.3s, height 0.3s;
+}
+#navbar.scrolled .nav-logo-img { height:40px; }
 .nav-logo {
   font-family:'Outfit','Bebas Neue',sans-serif; font-size:1.9rem;
   color:var(--blue); font-weight:800; letter-spacing:5px; line-height:1;
@@ -844,6 +852,7 @@ footer {
 .footer-grid {
   display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:48px; margin-bottom:50px;
 }
+.footer-logo-img { height:60px; width:auto; border-radius:8px; object-fit:contain; margin-bottom:12px; }
 .footer-brand .logo { font-family:'Outfit','Bebas Neue',sans-serif; font-size:2rem; letter-spacing:5px; color:#fff; }
 .footer-brand .logo span { color:var(--red); }
 .footer-brand p { color:rgba(255,255,255,0.45); font-size:0.85rem; line-height:1.8; margin-top:14px; max-width:280px; }
